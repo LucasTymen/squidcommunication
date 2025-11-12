@@ -67,15 +67,16 @@ for pattern in "${PATTERNS_CRITICAL[@]}"; do
     echo -n "  Recherche: $pattern... "
 
     # Recherche dans tous les fichiers sauf binaires
+    # Exclure campaign.json (contient des champs "token", "secret" légitimes)
     if grep -r -i -E "$pattern" "$CAMPAIGN_DIR/assets/sanitized/" 2>/dev/null || \
-       grep -r -i -E "$pattern" "$CAMPAIGN_DIR"/*.json 2>/dev/null || \
+       grep -r -i -E "$pattern" "$CAMPAIGN_DIR"/*/*.json 2>/dev/null || \
        grep -r -i -E "$pattern" "$CAMPAIGN_DIR"/*/*.md 2>/dev/null; then
 
         echo -e "${RED}TROUVÉ ❌${NC}"
         ERRORS=$((ERRORS + 1))
 
-        # Montrer les fichiers concernés
-        grep -r -l -i -E "$pattern" "$CAMPAIGN_DIR" 2>/dev/null | while read file; do
+        # Montrer les fichiers concernés (exclure campaign.json)
+        grep -r -l -i -E "$pattern" "$CAMPAIGN_DIR" 2>/dev/null | grep -v "campaign.json" | while read file; do
             echo -e "    ${RED}→ $file${NC}"
         done
     else
