@@ -1,0 +1,120 @@
+# ==========================================
+# squidCommunication .gitignore
+# ==========================================
+
+# ==========================================
+# Assets originaux (non floutés/sensibles)
+# ==========================================
+campaigns/*/assets/original/
+**/original/
+
+# ==========================================
+# Fichiers temporaires et caches
+# ==========================================
+*.tmp
+*.temp
+*.log
+*.cache
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==========================================
+# Node modules (si landing page Next.js)
+# ==========================================
+node_modules/
+.next/
+out/
+build/
+dist/
+
+# ==========================================
+# Variables d'environnement
+# ==========================================
+.env
+.env.local
+.env.*.local
+.vercel
+
+# ==========================================
+# IDE et éditeurs
+# ==========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ==========================================
+# Archives temporaires
+# ==========================================
+*.zip
+*.tar.gz
+*.rar
+# SAUF les archives finales dans archive/
+!campaigns/*/archive/*.zip
+
+# ==========================================
+# Credentials et tokens
+# ==========================================
+*.pem
+*.key
+credentials.json
+tokens.json
+
+# ==========================================
+# Drafts locaux non publiés
+# ==========================================
+**/drafts/
+**/work-in-progress/
+
+# ==========================================
+# Analytics privés (avant agrégation)
+# ==========================================
+**/raw-analytics/
+
+# ==========================================
+# Backups locaux
+# ==========================================
+*.bak
+*.backup
+*_backup
+
+# ==========================================
+# Python (si scripts Python)
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+*.egg-info/
+
+# ==========================================
+# MacOS
+# ==========================================
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# ==========================================
+# Windows
+# ==========================================
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ==========================================
+# Linux
+# ==========================================
+*~
+.nfs*
+
+# ==========================================
+# Dossiers de travail temporaires
+# ==========================================
+tmp/
+temp/
+scratch/

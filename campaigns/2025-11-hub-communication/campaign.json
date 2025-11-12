@@ -1,0 +1,99 @@
+{
+  "campaign_id": "2025-11-hub-communication",
+  "created_at": "2025-11-12T16:25:00Z",
+  "updated_at": "2025-11-12T16:55:00Z",
+  "status": "draft",
+  "objective": "Lancer la communication sur SquidResearch en démontrant la mise en place du hub éditorial lui-même (dogfooding)",
+  "message_key": "SquidResearch : Plateforme d'enrichissement B2B + IA, avec process de communication automatisé",
+  "platforms": [
+    "linkedin",
+    "instagram"
+  ],
+  "mcp_collaboration": {
+    "calendar_event_id": "",
+    "notion_template": "",
+    "drive_folder": "",
+    "tasks": [
+      "Créer événement GCal pour planning publications",
+      "Organiser dossier Drive pour assets campagne",
+      "Générer template Notion pour suivi KPIs",
+      "Préparer templates Canvas pour visuels LinkedIn/Instagram"
+    ]
+  },
+  "content": {
+    "summary": "Première campagne de communication SquidResearch axée sur le dogfooding : on communique sur la création même de notre système de communication automatisé. Meta, mais pertinent pour démontrer notre savoir-faire en workflows intelligents.",
+    "hashtags": [
+      "#SquidResearch",
+      "#Dogfooding",
+      "#ProductManagement",
+      "#IA",
+      "#B2BMarketing"
+    ],
+    "cta": "Suivre les prochaines updates et découvrir les features"
+  },
+  "links": {
+    "assets": "campaigns/2025-11-hub-communication/assets/",
+    "analytics": "campaigns/2025-11-hub-communication/archive/analytics.json"
+  },
+  "posts": [
+    {
+      "platform": "linkedin",
+      "type": "post",
+      "status": "draft",
+      "scheduled_date": "2025-11-15T10:00:00Z",
+      "title": "Dogfooding : On communique sur notre hub de communication",
+      "file": "linkedin/post-dogfooding.md"
+    },
+    {
+      "platform": "instagram",
+      "type": "story",
+      "status": "draft",
+      "scheduled_date": "2025-11-15T10:30:00Z",
+      "title": "Behind the scenes : Setup du hub éditorial",
+      "file": "instagram/story-setup.md"
+    },
+    {
+      "platform": "instagram",
+      "type": "story",
+      "status": "draft",
+      "scheduled_date": "2025-11-15T18:00:00Z",
+      "title": "CTA : Suivez-nous pour les prochaines features",
+      "file": "instagram/story-cta.md"
+    }
+  ],
+  "security_checklist": {
+    "no_ip_visible": false,
+    "credentials_masked": false,
+    "no_tokens": false,
+    "client_data_anonymized": false,
+    "internal_urls_masked": false,
+    "env_vars_hidden": false,
+    "validation_script_run": false,
+    "validated_by": "",
+    "validated_at": ""
+  },
+  "kpis": {
+    "target": {
+      "linkedin_impressions": 500,
+      "linkedin_engagement": 30,
+      "instagram_views": 200,
+      "instagram_engagement": 15,
+      "cta_clicks": 25,
+      "website_visits": 50
+    },
+    "actual": {
+      "linkedin_impressions": 0,
+      "linkedin_engagement": 0,
+      "instagram_views": 0,
+      "instagram_engagement": 0,
+      "cta_clicks": 0,
+      "website_visits": 0
+    }
+  },
+  "notes": [
+    "Première campagne pilote pour tester le workflow complet",
+    "Focus sur le dogfooding : utiliser la création du hub comme premier contenu",
+    "Assets à créer : captures du repo, schéma architecture, templates",
+    "Préparer version floutée de toutes les captures avant publication"
+  ]
+}
