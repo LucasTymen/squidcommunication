@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+:root {
+  --background: linear-gradient(135deg, #090817 0%, #1c0f39 45%, #2f1b63 100%);
+  --foreground: #edf2ff;
+  color-scheme: dark;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--background);
+  background-attachment: fixed;
+  color: var(--foreground);
+  font-family: "Arial", "Helvetica Neue", sans-serif;
+}
+
+a {
+  color: inherit;
+}
