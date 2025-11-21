@@ -1,0 +1,279 @@
+{
+  "name": "Generate Social Media Content",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "generate-content",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "webhookId": "generate-content"
+    },
+    {
+      "parameters": {
+        "url": "http://web:8000/api/communication/platforms/",
+        "method": "GET",
+        "options": {}
+      },
+      "id": "get-platforms",
+      "name": "Get Platforms",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "url": "http://web:8000/api/communication/templates/{{ $json.platform }}/",
+        "method": "GET",
+        "options": {}
+      },
+      "id": "get-templates",
+      "name": "Get Templates",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "url": "http://flowise:3001/api/v1/prediction/{{ $env.FLOWISE_FLOW_ID }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $env.FLOWISE_API_KEY }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "question",
+              "value": "Génère un post {{ $json.platform }} avec : {{ $json.prompt }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "call-flowise",
+      "name": "Call Flowise AI",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "url": "http://web:8000/api/communication/generate/",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $env.DJANGO_API_TOKEN }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "platform",
+              "value": "={{ $json.platform }}"
+            },
+            {
+              "name": "template_id",
+              "value": "={{ $json.template_id || 'simple_post' }}"
+            },
+            {
+              "name": "data",
+              "value": "={{ $json.ai_response }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "build-content",
+      "name": "Build Content",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1050, 300]
+    },
+    {
+      "parameters": {
+        "url": "http://web:8000/api/communication/validate/",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $env.DJANGO_API_TOKEN }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "platform",
+              "value": "={{ $json.platform }}"
+            },
+            {
+              "name": "content",
+              "value": "={{ $json.content }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "validate-content",
+      "name": "Validate Content",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1250, 300]
+    },
+    {
+      "parameters": {
+        "command": "cd /home/lucas/tools/squidCommunication && mkdir -p campaigns/{{ $json.campaign_id }}/{{ $json.platform }} && echo '{{ JSON.stringify($json.content) }}' > campaigns/{{ $json.campaign_id }}/{{ $json.platform }}/post-{{ $json.id }}.md"
+      },
+      "id": "save-to-communication",
+      "name": "Save to squidCommunication",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1450, 300]
+    },
+    {
+      "parameters": {
+        "command": "cd /home/lucas/tools/squidResearch && ./scripts/sync_repos.sh log"
+      },
+      "id": "sync-repos",
+      "name": "Sync Repos",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1650, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { \"success\": true, \"content_id\": $json.id, \"platform\": $json.platform } }}"
+      },
+      "id": "webhook-response",
+      "name": "Webhook Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1850, 300]
+    }
+  ],
+  "connections": {
+    "Webhook Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get Platforms",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Platforms": {
+      "main": [
+        [
+          {
+            "node": "Get Templates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Templates": {
+      "main": [
+        [
+          {
+            "node": "Call Flowise AI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call Flowise AI": {
+      "main": [
+        [
+          {
+            "node": "Build Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Content": {
+      "main": [
+        [
+          {
+            "node": "Validate Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Content": {
+      "main": [
+        [
+          {
+            "node": "Save to squidCommunication",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save to squidCommunication": {
+      "main": [
+        [
+          {
+            "node": "Sync Repos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sync Repos": {
+      "main": [
+        [
+          {
+            "node": "Webhook Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-11-12T21:00:00.000Z",
+  "versionId": "1"
+}
+

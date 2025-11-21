@@ -1,0 +1,73 @@
+{
+  "template_id": "twitter_single_tweet",
+  "platform": "twitter",
+  "type": "single",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Twitter Single Tweet",
+    "description": "Tweet simple (280 caractères max)",
+    "max_length": 280,
+    "hashtags_max": 3,
+    "supports_images": true,
+    "supports_videos": true,
+    "supports_threads": false
+  },
+  "structure": {
+    "sections": [
+      {
+        "id": "text",
+        "type": "text",
+        "required": true,
+        "max_length": 250,
+        "placeholder": "Votre tweet (max 250 caractères pour laisser place aux hashtags)",
+        "position": 1
+      },
+      {
+        "id": "hashtags",
+        "type": "hashtags",
+        "required": false,
+        "max_count": 3,
+        "suggestions": [
+          "#SquidResearch",
+          "#IA",
+          "#Tech"
+        ],
+        "position": 2
+      },
+      {
+        "id": "image",
+        "type": "image",
+        "required": false,
+        "formats": ["png", "jpg", "jpeg", "gif"],
+        "max_size_mb": 5,
+        "dimensions": {
+          "recommended": "1200x675",
+          "min": "600x600",
+          "max": "4096x4096"
+        },
+        "position": 3
+      }
+    ]
+  },
+  "validation": {
+    "rules": [
+      {
+        "field": "text",
+        "type": "length",
+        "min": 10,
+        "max": 280
+      },
+      {
+        "field": "hashtags",
+        "type": "count",
+        "max": 3
+      }
+    ]
+  },
+  "ai_prompts": {
+    "generate": "Génère un tweet accrocheur et concis (max 280 caractères) avec hashtags pertinents",
+    "optimize": "Optimise ce tweet pour maximiser l'engagement",
+    "translate": "Traduis ce tweet en [langue]"
+  }
+}
+

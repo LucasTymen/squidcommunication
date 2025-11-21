@@ -1,0 +1,134 @@
+{
+  "name": "Auto Sync Communication Log",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 5
+            }
+          ]
+        }
+      },
+      "id": "cron-trigger",
+      "name": "Cron Trigger",
+      "type": "n8n-nodes-base.cron",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "command": "cd /home/lucas/tools/squidResearch && stat -c %Y communication_projet.md"
+      },
+      "id": "check-timestamp",
+      "name": "Check File Timestamp",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $json.stdout }}",
+              "operation": "larger",
+              "value2": "={{ $('Get Last Sync').item.json.last_sync || 0 }}"
+            }
+          ]
+        }
+      },
+      "id": "compare-timestamps",
+      "name": "Compare Timestamps",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "command": "cd /home/lucas/tools/squidResearch && ./scripts/sync_repos.sh all"
+      },
+      "id": "sync-repos",
+      "name": "Sync Repos",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [850, 200]
+    },
+    {
+      "parameters": {
+        "values": {
+          "number": [
+            {
+              "name": "last_sync",
+              "value": "={{ $('Check File Timestamp').item.json.stdout }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "update-last-sync",
+      "name": "Update Last Sync",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [1050, 200]
+    }
+  ],
+  "connections": {
+    "Cron Trigger": {
+      "main": [
+        [
+          {
+            "node": "Check File Timestamp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check File Timestamp": {
+      "main": [
+        [
+          {
+            "node": "Compare Timestamps",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Compare Timestamps": {
+      "main": [
+        [
+          {
+            "node": "Sync Repos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sync Repos": {
+      "main": [
+        [
+          {
+            "node": "Update Last Sync",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-11-12T20:00:00.000Z",
+  "versionId": "1"
+}
+

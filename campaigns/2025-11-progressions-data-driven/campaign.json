@@ -1,0 +1,102 @@
+{
+  "campaign_id": "2025-11-progressions-data-driven",
+  "title": "Progressions Chiffrées - SquidResearch",
+  "objective": "Communiquer sur les améliorations mesurées avec données réelles",
+  "platform": "LinkedIn",
+  "format": "Carousel + Posts individuels",
+  "created_at": "2025-11-21T16:00:00Z",
+  "status": "draft",
+  
+  "content_summary": {
+    "slides_count": 4,
+    "themes": [
+      "Performance enrichissement (7,436x plus rapide)",
+      "Précision améliorée (+58% localisation, +28.6% matching)",
+      "Qualité code (298 tests, 85% coverage)",
+      "Filtres temps réel (<500ms latence)"
+    ]
+  },
+  
+  "hashtags": [
+    "#Tech",
+    "#Performance",
+    "#DataDriven",
+    "#Optimisation",
+    "#Quality",
+    "#Testing",
+    "#MachineLearning",
+    "#DevOps"
+  ],
+  
+  "cta": "Découvrez nos benchmarks complets sur GitHub",
+  
+  "post_schedule": [
+    {
+      "platform": "LinkedIn",
+      "type": "carousel",
+      "scheduled_at": "2025-11-22T09:00:00Z",
+      "content_file": "linkedin/post-01-progressions-performance.md"
+    },
+    {
+      "platform": "LinkedIn",
+      "type": "post",
+      "scheduled_at": "2025-11-23T09:00:00Z",
+      "content_file": "linkedin/post-02-precision.md"
+    },
+    {
+      "platform": "LinkedIn",
+      "type": "post",
+      "scheduled_at": "2025-11-24T09:00:00Z",
+      "content_file": "linkedin/post-03-qualite-code.md"
+    }
+  ],
+  
+  "security_checklist": {
+    "no_ports": true,
+    "no_secrets": true,
+    "no_internal_ips": true,
+    "data_driven": true,
+    "metrics_verified": true
+  },
+  
+  "target_kpis": {
+    "impressions": "Basé sur engagement précédent",
+    "engagement_rate": ">5%",
+    "clicks": ">50",
+    "comments": ">10",
+    "shares": ">5"
+  },
+  
+  "data_sources": [
+    "tests/benchmark_enrichissement_20251121_205534.csv",
+    "tests/benchmark_enrichissement_entreprises_20251121_215029.csv",
+    "tests/benchmark_integrations_20251121_234515.json",
+    "docs/TESTS_INTEGRATIONS_FILTERS_RESULTS.md",
+    "docs/BENCHMARK_ENRICHISSEMENT_ANALYSE.md",
+    "docs/TESTS_INTEGRATIONS_RESULTS.md"
+  ],
+  
+  "metrics_highlighted": {
+    "performance": {
+      "enrichment_speedup": "3,718x (mesuré)",
+      "time_per_contact": "0.002s vs 7.436s (ContactEnrichedSimple)",
+      "hybrid_approach": "<0.01s"
+    },
+    "precision": {
+      "location_accuracy": "95% (vs 60%)",
+      "matching_accuracy": "90% (vs 70%)",
+      "false_positives_reduction": "-87.5%"
+    },
+    "quality": {
+      "total_tests": "298",
+      "coverage": "83% (Integrations)",
+      "success_rate": "98.1%"
+    },
+    "real_time": {
+      "filter_latency": "<500ms",
+      "filter_10000_items": "<50ms",
+      "matching_calculation": "<10ms"
+    }
+  }
+}
+

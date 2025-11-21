@@ -1,0 +1,97 @@
+{
+  "template_id": "linkedin_simple_post",
+  "platform": "linkedin",
+  "type": "simple",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "LinkedIn Simple Post",
+    "description": "Post LinkedIn standard avec texte + image",
+    "max_length": 3000,
+    "hashtags_max": 5,
+    "supports_images": true,
+    "supports_videos": false,
+    "supports_carousel": false
+  },
+  "structure": {
+    "sections": [
+      {
+        "id": "hook",
+        "type": "text",
+        "required": true,
+        "max_length": 150,
+        "placeholder": "Accroche forte (question, chiffre, constat)",
+        "position": 1
+      },
+      {
+        "id": "body",
+        "type": "text",
+        "required": true,
+        "max_length": 2000,
+        "placeholder": "Corps du message (2-3 paragraphes)",
+        "position": 2
+      },
+      {
+        "id": "cta",
+        "type": "text",
+        "required": false,
+        "max_length": 200,
+        "placeholder": "Appel à l'action",
+        "position": 3
+      },
+      {
+        "id": "hashtags",
+        "type": "hashtags",
+        "required": false,
+        "max_count": 5,
+        "suggestions": [
+          "#SquidResearch",
+          "#IA",
+          "#B2B",
+          "#SaaS",
+          "#Python"
+        ],
+        "position": 4
+      },
+      {
+        "id": "image",
+        "type": "image",
+        "required": false,
+        "formats": ["png", "jpg", "jpeg"],
+        "max_size_mb": 5,
+        "dimensions": {
+          "recommended": "1200x627",
+          "min": "1200x627",
+          "max": "1200x627"
+        },
+        "position": 5
+      }
+    ]
+  },
+  "validation": {
+    "rules": [
+      {
+        "field": "hook",
+        "type": "length",
+        "min": 20,
+        "max": 150
+      },
+      {
+        "field": "body",
+        "type": "length",
+        "min": 100,
+        "max": 2000
+      },
+      {
+        "field": "hashtags",
+        "type": "count",
+        "max": 5
+      }
+    ]
+  },
+  "ai_prompts": {
+    "generate": "Génère un post LinkedIn professionnel avec :\n- Hook accrocheur\n- Corps développé\n- CTA clair\n- Hashtags pertinents",
+    "optimize": "Optimise ce post LinkedIn pour maximiser l'engagement",
+    "translate": "Traduis ce post LinkedIn en [langue]"
+  }
+}
+

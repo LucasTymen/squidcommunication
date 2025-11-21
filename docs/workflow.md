@@ -9,8 +9,11 @@ Ce document décrit le workflow complet pour créer, valider et publier une camp
 ### 1.1 Créer la structure
 
 ```bash
-cd squidCommunication/scripts
-./create-campaign.sh "feature-matching" linkedin instagram
+python scripts/create_campaign.py 2025-11-feature-matching \
+  --platforms linkedin instagram \
+  --posts 3 \
+  --series "Saga SquidResearch" \
+  --episode 1
 ```
 
 Cela crée :
@@ -364,11 +367,14 @@ Utiliser les learnings :
 ### Scripts disponibles
 
 ```bash
-# Créer une campagne
-./scripts/create-campaign.sh <slug> <platforms...>
+# Créer une campagne data-driven
+python scripts/create_campaign.py <slug> --platforms linkedin instagram
 
-# Valider la sécurité
-./scripts/validate-campaign.sh campaigns/<id>
+# Mettre à jour les KPIs (à venir)
+python scripts/update_metrics.py campaigns/<slug>
+
+# Synchroniser les logs avec squidResearch
+./scripts/sync_logs.sh --direction push   # ou --direction pull
 ```
 
 ### Templates disponibles
