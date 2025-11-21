@@ -38,7 +38,7 @@
 | Métrique | Avant | Après | Progression |
 |----------|-------|-------|-------------|
 | **Précision localisation** | ~60% | **~95%** | **+58%** ✅ |
-| **Faux positifs** | 40% | **5%** | **-87.5%** ✅ |
+| **Faux positifs** | ~40% | **~5%** | **-87.5%** ✅ (approximatif) |
 | **Temps filtrage** | N/A | <200ms (4000 items) | ✅ Performant |
 
 **Exemple concret** :
@@ -251,16 +251,17 @@
 
 ### Post 1 : Performance
 
-**Titre** : "7,436x Plus Rapide : L'Optimisation au Service de la Productivité"
+**Titre** : "3,718x Plus Rapide (Mesuré) : L'Optimisation au Service de la Productivité"
 
 **Contenu** :
 ```
-🚀 Nouveau benchmark : notre module d'enrichissement emails est maintenant 7,436x plus rapide !
+🚀 Nouveau benchmark : notre module d'enrichissement emails est maintenant 3,718x plus rapide (mesuré) !
 
-📊 Résultats mesurés :
-• 0.001s vs 7.436s par contact
-• 100 contacts : 13 minutes → 0.1 seconde
-• 1000 contacts : 2 heures → 1 seconde
+📊 Résultats mesurés (benchmark réel) :
+• 0.002s vs 7.436s par contact (ContactEnrichedSimple)
+• 0.022s vs 7.436s par contact (EmailPatternDirect)
+• 100 contacts : 12.4 minutes → 0.2 seconde
+• 1000 contacts : 2 heures → 2 secondes
 
 ⚡ Comment ? Approche hybride optimisée avec génération intelligente de patterns.
 
@@ -275,8 +276,8 @@
 ```
 🎯 Amélioration majeure de précision sur nos algorithmes :
 
-📍 Filtrage géographique : 60% → 95% (+58%)
-🎯 Matching candidats : 70% → 90% (+28.6%)
+📍 Filtrage géographique : ~60% → ~95% (+58% approximatif)
+🎯 Matching candidats : ~70% → ~90% (+28.6% approximatif)
 ✅ Faux positifs : -87.5%
 
 📊 Basé sur benchmarks réels avec 10,000+ items testés.
@@ -292,10 +293,10 @@
 ```
 🧪 Notre suite de tests continue de grandir :
 
-✅ 298 tests automatisés
-📊 85% coverage global
-⚡ 98.1% taux de réussite
-🔧 <2s temps d'exécution
+✅ 298 tests automatisés (24+55+106+113)
+📊 83% coverage (Integrations - mesuré)
+⚡ 100% taux de réussite (Integrations)
+🔧 <2s temps d'exécution (Integrations)
 
 🎯 Objectif : Qualité et fiabilité avant tout.
 
