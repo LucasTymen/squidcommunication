@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>SquidResearch — Épisode 2 (Slide 9)</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', Arial, sans-serif;
+      color: #f8fafc;
+      background: radial-gradient(circle at 20% 20%, rgba(90, 217, 255, 0.28), transparent 45%),
+                  radial-gradient(circle at 80% 0%, rgba(132, 94, 247, 0.35), transparent 40%),
+                  linear-gradient(135deg, #090817 0%, #1c0f39 45%, #2f1b63 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 60px;
+      
+    }
+    .card {
+      width: 1080px;
+      height: 1080px;
+      border-radius: 48px;
+      padding: 70px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: rgba(15, 23, 42, 0.35);
+      backdrop-filter: blur(24px);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      box-shadow: 0 40px 90px -30px rgba(17, 24, 39, 0.7);
+    }
+    h2 {
+      font-size: 56px;
+      line-height: 1.1;
+      margin: 0 0 30px 0;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    .intro-text {
+      font-size: 20px;
+      color: rgba(203, 213, 225, 0.85);
+      margin-bottom: 25px;
+      line-height: 1.4;
+      animation: fadeInUp 1s ease-out 0.2s both;
+    }
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      margin: 20px 0;
+    }
+    .metric {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      border-radius: 20px;
+      padding: 24px;
+      text-align: center;
+      backdrop-filter: blur(8px);
+      position: relative;
+      
+      will-change: transform, opacity;
+      animation: metricAppear 0.6s ease-out both;
+    }
+    .metric.cache {
+      border-left: 4px solid #10b981;
+      animation-delay: 0.1s;
+    }
+    .metric.tor {
+      border-left: 4px solid #f59e0b;
+      animation-delay: 0.3s;
+    }
+    .metric.sources {
+      border-left: 4px solid #6366f1;
+      animation-delay: 0.5s;
+    }
+    .metric.gain {
+      border-left: 4px solid #06b6d4;
+      animation-delay: 0.7s;
+    }
+    .metric-label {
+      font-size: 22px;
+      color: rgba(226, 232, 240, 0.95);
+      margin-bottom: 10px;
+    }
+    .metric-value {
+      font-size: 42px;
+      font-weight: 700;
+      margin: 12px 0;
+      will-change: transform;
+      animation: valuePop 0.8s ease-out both;
+    }
+    .metric.cache .metric-value {
+      color: #10b981;
+      animation-delay: 0.2s;
+    }
+    .metric.tor .metric-value {
+      color: #f59e0b;
+      animation-delay: 0.4s;
+    }
+    .metric.sources .metric-value {
+      color: #6366f1;
+      animation-delay: 0.6s;
+    }
+    .metric.gain .metric-value {
+      color: #06b6d4;
+      animation-delay: 0.8s;
+    }
+    .metric-desc {
+      font-size: 16px;
+      color: rgba(203, 213, 225, 0.75);
+      line-height: 1.4;
+      margin-top: 10px;
+    }
+    .chart-container {
+      position: relative;
+      width: 100%;
+      height: 50px;
+      margin: 12px 0;
+      background: rgba(15, 23, 42, 0.3);
+      border-radius: 6px;
+      
+    }
+    .chart-bar {
+      height: 100%;
+      border-radius: 6px;
+      animation: barFill 1.5s ease-out both;
+      position: relative;
+    }
+    .chart-bar.cache {
+      background: linear-gradient(90deg, #10b981, #34d399);
+      width: 95%;
+      animation-delay: 0.3s;
+    }
+    .chart-bar.tor {
+      background: linear-gradient(90deg, #f59e0b, #fbbf24);
+      width: 60%;
+      animation-delay: 0.5s;
+    }
+    .chart-pie {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin: 8px auto;
+      background: conic-gradient(
+        #06b6d4 0deg 306deg,
+        rgba(226, 232, 240, 0.2) 306deg 360deg
+      );
+      animation: pieRotate 1s ease-out 0.4s both;
+    }
+    .warning-box {
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      border-radius: 20px;
+      padding: 20px;
+      margin-top: 25px;
+      text-align: center;
+      animation: slideInUp 0.8s ease-out 1s both;
+    }
+    .warning-title {
+      font-size: 20px;
+      color: rgba(245, 158, 11, 0.95);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .warning-text {
+      font-size: 16px;
+      color: rgba(203, 213, 225, 0.85);
+      line-height: 1.4;
+    }
+    .cta-button {
+      background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+      border: none;
+      border-radius: 24px;
+      padding: 18px 40px;
+      font-size: 24px;
+      font-weight: 600;
+      color: #f8fafc;
+      cursor: pointer;
+      margin-top: 25px;
+      box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+      transition: all 0.3s ease;
+      width: 100%;
+      will-change: transform, box-shadow;
+      animation: buttonAppear 0.8s ease-out 1.2s both;
+    }
+    .cta-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 40px rgba(99, 102, 241, 0.6);
+    }
+    .cta-button:active {
+      transform: scale(0.98);
+    }
+    .footer {
+      font-size: 22px;
+      color: rgba(148, 163, 184, 0.85);
+      animation: fadeInUp 1.4s ease-out 1.4s both;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes metricAppear {
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+    @keyframes valuePop {
+      0% {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    @keyframes barFill {
+      from {
+        width: 0;
+      }
+    }
+    @keyframes pieRotate {
+      from {
+        transform: rotate(-90deg);
+        opacity: 0;
+      }
+      to {
+        transform: rotate(0deg);
+        opacity: 1;
+      }
+    }
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes buttonAppear {
+      from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div>
+      <h2>Résultats &amp; Performance</h2>
+      <p class="intro-text">
+        Métriques réelles mesurées : performance avec cache hit, réalité avec Tor/humanisation.
+      </p>
+      <div class="metrics-grid">
+        <div class="metric cache">
+          <div class="metric-label">⚡ Cache hit</div>
+          <div class="metric-value">&lt; 0.1s</div>
+          <div class="chart-container">
+            <div class="chart-bar cache"></div>
+          </div>
+          <div class="metric-desc">
+            <strong>Si cache hit :</strong> &lt; 0.1s<br/>
+            <strong>Mesuré :</strong> Benchmark réel<br/>
+            <strong>Gain :</strong> 98x plus rapide<br/>
+            <span style="font-size: 14px; opacity: 0.8;">Scénario : 100 contacts même entreprise</span>
+          </div>
+        </div>
+        <div class="metric tor">
+          <div class="metric-label">🛡️ Avec Tor</div>
+          <div class="metric-value">5-8s</div>
+          <div class="chart-container">
+            <div class="chart-bar tor"></div>
+          </div>
+          <div class="metric-desc">
+            <strong>Par requête :</strong> 5-8s<br/>
+            <strong>Réalité production :</strong> Humanisation<br/>
+            <strong>Rate limiting :</strong> Max 10-12 req/min<br/>
+            <span style="font-size: 14px; opacity: 0.8;">Protection anti-ban</span>
+          </div>
+        </div>
+        <div class="metric sources">
+          <div class="metric-label">🔄 Sources</div>
+          <div class="metric-value" style="font-size: 28px;">APIs officielles</div>
+          <div class="chart-pie"></div>
+          <div class="metric-desc">
+            <strong>INSEE :</strong> API gratuite<br/>
+            <strong>Pappers :</strong> API documentée<br/>
+            <strong>Société.com :</strong> Scraper<br/>
+            <span style="font-size: 14px; opacity: 0.8;">Documentation vérifiée</span>
+          </div>
+        </div>
+        <div class="metric gain">
+          <div class="metric-label">📊 Gain cache</div>
+          <div class="metric-value">98x</div>
+          <div class="chart-container">
+            <div class="chart-bar cache" style="width: 98%;"></div>
+          </div>
+          <div class="metric-desc">
+            <strong>Plus rapide :</strong> 98x<br/>
+            <strong>Benchmark :</strong> 100 contacts<br/>
+            <strong>Performance :</strong> Cache hit vs requête<br/>
+            <span style="font-size: 14px; opacity: 0.8;">Mesuré en production</span>
+          </div>
+        </div>
+      </div>
+      <div class="warning-box">
+        <div class="warning-title">⚠️ Performance réelle</div>
+        <div class="warning-text">
+          <strong>Lent avec Tor/humanisation :</strong> 5-8s par requête<br/>
+          <strong>Rapide seulement avec cache hit :</strong> &lt; 0.1s<br/>
+          <strong>Réalité production :</strong> Mix des deux selon cache
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 20px;">
+        <button class="cta-button">🚀 Découvrir l'architecture complète</button>
+      </div>
+    </div>
+    <div class="footer">Métriques réelles · performance production · #SquidResearch #Docker #EnrichissementDonnées</div>
+  </div>
+</body>
+</html>

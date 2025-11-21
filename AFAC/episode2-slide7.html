@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>SquidResearch — Épisode 2 (Slide 7)</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', Arial, sans-serif;
+      color: #f8fafc;
+      background: radial-gradient(circle at 30% 30%, rgba(99, 102, 241, 0.4), transparent 50%),
+                  radial-gradient(circle at 70% 70%, rgba(236, 72, 153, 0.35), transparent 50%),
+                  linear-gradient(160deg, #0c1024 0%, #20104a 50%, #32196b 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 60px;
+    }
+    .card {
+      width: 1080px;
+      height: 1080px;
+      border-radius: 48px;
+      padding: 70px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: rgba(17, 24, 39, 0.45);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      box-shadow: 0 40px 80px -28px rgba(17, 24, 39, 0.7);
+      backdrop-filter: blur(24px);
+      position: relative;
+    }
+    h2 {
+      font-size: 56px;
+      margin: 0 0 25px 0;
+      line-height: 1.1;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    .intro-text {
+      font-size: 20px;
+      color: rgba(203, 213, 225, 0.85);
+      margin-bottom: 25px;
+      line-height: 1.4;
+      animation: fadeInUp 1s ease-out 0.2s both;
+    }
+    .network-diagram {
+      position: relative;
+      width: 100%;
+      height: 340px;
+      margin: 15px 0;
+    }
+    .network-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 180px;
+      height: 90px;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(236, 72, 153, 0.3));
+      border: 2px solid rgba(99, 102, 241, 0.6);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 700;
+      color: rgba(226, 232, 240, 0.95);
+      z-index: 10;
+      animation: networkPulse 2s ease-in-out infinite;
+      will-change: transform, box-shadow;
+      text-align: center;
+      padding: 10px;
+    }
+    .network-center span {
+      font-size: 13px;
+      display: block;
+      margin-top: 3px;
+    }
+    .zone {
+      position: absolute;
+      background: rgba(30, 41, 59, 0.8);
+      border: 2px solid;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: 16px;
+      backdrop-filter: blur(8px);
+      will-change: transform, opacity;
+      animation: zoneAppear 0.6s ease-out both;
+      max-width: 200px;
+    }
+    .zone.web {
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      border-color: rgba(59, 130, 246, 0.6);
+      animation-delay: 0.2s;
+    }
+    .zone.data {
+      bottom: 0;
+      left: 0;
+      border-color: rgba(16, 185, 129, 0.6);
+      animation-delay: 0.4s;
+    }
+    .zone.automation {
+      bottom: 0;
+      right: 0;
+      border-color: rgba(99, 102, 241, 0.6);
+      animation-delay: 0.6s;
+    }
+    .zone span {
+      font-size: 12px;
+      opacity: 0.8;
+      display: block;
+      margin-top: 4px;
+      line-height: 1.3;
+    }
+    .connection-lines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .connection-path {
+      stroke-width: 2;
+      fill: none;
+      stroke-dasharray: 5,5;
+      animation: lineFlow 2s linear infinite;
+    }
+    .connection-path.api {
+      stroke: rgba(59, 130, 246, 0.5);
+    }
+    .connection-path.redis {
+      stroke: rgba(245, 158, 11, 0.5);
+    }
+    .connection-path.db {
+      stroke: rgba(16, 185, 129, 0.5);
+    }
+    .connection-arrow {
+      fill: rgba(99, 102, 241, 0.7);
+      animation: arrowPulse 1.5s ease-in-out infinite;
+    }
+    .legend {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+      animation: fadeInUp 1.2s ease-out 0.8s both;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 16px;
+      color: rgba(203, 213, 225, 0.85);
+    }
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      animation: dotPulse 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    .legend-dot.blue {
+      background: #3b82f6;
+    }
+    .legend-dot.orange {
+      background: #f59e0b;
+    }
+    .legend-dot.green {
+      background: #10b981;
+    }
+    .security-badge {
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      border-radius: 14px;
+      padding: 12px 20px;
+      text-align: center;
+      font-size: 18px;
+      color: rgba(16, 185, 129, 0.95);
+      margin-top: 15px;
+      animation: securityPulse 2s ease-in-out infinite;
+    }
+    .volumes-text {
+      font-size: 16px;
+      color: rgba(148, 163, 184, 0.8);
+      margin-top: 15px;
+      text-align: center;
+      animation: fadeInUp 1.4s ease-out 1s both;
+    }
+    .footer {
+      font-size: 22px;
+      color: rgba(148, 163, 184, 0.82);
+      animation: fadeInUp 1.6s ease-out 1.2s both;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes networkPulse {
+      0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.05);
+        box-shadow: 0 0 30px rgba(99, 102, 241, 0.6);
+      }
+    }
+    @keyframes zoneAppear {
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+    .zone.web {
+      transform: translateX(-50%);
+    }
+    .zone.data {
+      transform: translateY(0);
+    }
+    .zone.automation {
+      transform: translateY(0);
+    }
+    @keyframes lineFlow {
+      0% { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: 20; }
+    }
+    @keyframes dotPulse {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.2); opacity: 1; }
+    }
+    @keyframes securityPulse {
+      0%, 100% {
+        box-shadow: 0 0 0 rgba(16, 185, 129, 0);
+      }
+      50% {
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+      }
+    }
+    @keyframes arrowPulse {
+      0%, 100% { opacity: 0.7; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div>
+      <h2>Réseaux, APIs &amp; Webhooks</h2>
+      <p class="intro-text">
+        Architecture détaillée : réseau Docker isolé, APIs REST, webhooks et connexions inter-services.
+      </p>
+      <div class="network-diagram">
+        <svg class="connection-lines" viewBox="0 0 920 340" preserveAspectRatio="xMidYMid meet">
+          <!-- Lignes avec coudes précis pointant vers le centre (460, 170) -->
+          <!-- Web Layer → Network (haut vers centre) -->
+          <path class="connection-path api" d="M 460 40 L 460 170" />
+          <polygon class="connection-arrow" points="455,165 460,170 455,175" />
+          
+          <!-- Network → Automation (centre vers droite-bas) -->
+          <path class="connection-path api" d="M 460 170 L 720 170 L 720 300" />
+          <polygon class="connection-arrow" points="715,295 720,300 715,305" />
+          
+          <!-- Data Layer → Network (gauche-bas vers centre) -->
+          <path class="connection-path db" d="M 100 300 L 100 170 L 460 170" />
+          <polygon class="connection-arrow" points="455,165 460,170 455,175" />
+          
+          <!-- Network → Data Layer (centre vers gauche-bas, Redis) -->
+          <path class="connection-path redis" d="M 460 170 L 100 170 L 100 300" />
+          <polygon class="connection-arrow" points="95,295 100,300 95,305" />
+        </svg>
+        
+        <div class="network-center">
+          squidresearch_network
+          <span>Réseau isolé</span>
+        </div>
+        
+        <div class="zone web">
+          🌐 Web Layer<br/>
+          Django · React<br/><br/>
+          <span>API REST : /api/enriched/<br/>/companies/search/</span>
+        </div>
+        <div class="zone data">
+          💾 Data Layer<br/>
+          PostgreSQL · Redis<br/><br/>
+          <span>Django ORM<br/>Migrations</span>
+        </div>
+        <div class="zone automation">
+          ⚙️ Automation<br/>
+          n8n · Flowise · Celery<br/><br/>
+          <span>Webhooks : /webhooks/<br/>/api/n8n/webhooks/</span>
+        </div>
+      </div>
+      <div class="legend">
+        <div class="legend-item">
+          <div class="legend-dot blue"></div>
+          <span>API REST</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot orange"></div>
+          <span>Redis Pub/Sub</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot green"></div>
+          <span>Database</span>
+        </div>
+      </div>
+      <div class="security-badge">
+        🔒 Réseau bridge isolé · Pas de ports exposés · Sécurité renforcée
+      </div>
+      <p class="volumes-text">
+        Volumes : postgres_data, redis_data, n8n_data, flowise_data
+      </p>
+    </div>
+    <div class="footer">Infrastructure réseau · APIs &amp; webhooks</div>
+  </div>
+</body>
+</html>
