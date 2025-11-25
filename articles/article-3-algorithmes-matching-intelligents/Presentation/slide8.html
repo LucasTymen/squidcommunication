@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>SquidResearch — Épisode 3 (Slide 8)</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', Arial, sans-serif;
+      color: #f8fafc;
+      background: radial-gradient(circle at 20% 20%, rgba(90, 217, 255, 0.28), transparent 45%),
+                  radial-gradient(circle at 80% 0%, rgba(132, 94, 247, 0.35), transparent 40%),
+                  linear-gradient(135deg, #090817 0%, #1c0f39 45%, #2f1b63 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 60px;
+    }
+    .card {
+      width: 1080px;
+      height: 1080px;
+      border-radius: 48px;
+      padding: 80px 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: rgba(15, 23, 42, 0.35);
+      backdrop-filter: blur(24px);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      box-shadow: 0 40px 90px -30px rgba(17, 24, 39, 0.7);
+      position: relative;
+    }
+    .badge {
+      align-self: flex-start;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.35em;
+      background: linear-gradient(90deg, rgba(139, 92, 246, 0.85), rgba(14, 165, 233, 0.75));
+      color: #0b1120;
+      font-weight: 600;
+      animation: badgePulse 2s ease-in-out infinite;
+    }
+    h1 {
+      font-size: 72px;
+      line-height: 1.05;
+      margin: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: titleGradient 3s ease-in-out infinite;
+    }
+    h2 {
+      font-size: 36px;
+      font-weight: 500;
+      margin: 16px 0 0;
+      color: rgba(226, 232, 240, 0.9);
+      animation: fadeInUp 0.8s ease-out;
+    }
+    .content {
+      font-size: 24px;
+      color: rgba(203, 213, 225, 0.85);
+      margin: 20px 0;
+      line-height: 1.4;
+      animation: fadeInUp 1s ease-out 0.2s both;
+    }
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin: 40px 0;
+    }
+    .metric-card {
+      background: rgba(30, 41, 59, 0.6);
+      border: 2px solid rgba(99, 102, 241, 0.4);
+      border-radius: 20px;
+      padding: 32px;
+      text-align: center;
+      backdrop-filter: blur(8px);
+      animation: fadeInUp 1s ease-out both;
+    }
+    .metric-value {
+      font-size: 56px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+    .metric-label {
+      font-size: 18px;
+      color: rgba(203, 213, 225, 0.8);
+      font-weight: 500;
+    }
+    .footer {
+      font-size: 24px;
+      color: rgba(148, 163, 184, 0.85);
+      animation: fadeInUp 1.2s ease-out 1s both;
+    }
+    @keyframes badgePulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.9; transform: scale(1.02); }
+    }
+    @keyframes titleGradient {
+      0%, 100% { filter: hue-rotate(0deg); }
+      50% { filter: hue-rotate(10deg); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="badge">Épisode 3</div>
+    <div>
+      <h1>Découvrir les Algorithmes</h1>
+      <h2>Matching intelligent pour prospection B2B</h2>
+      <p class="content">5 algorithmes spécialisés basés sur des modèles mathématiques.</p>
+      <p class="content">26/26 tests passent, coverage 62% (modules critiques &gt;85%).</p>
+      <p class="content" style="font-size: 20px; margin-top: 40px;">
+        #SquidResearch #Matching #Algorithmes #IA #DataDriven #B2B #TechInnovation #Python #Django #Recrutement #Sourcing
+      </p>
+    </div>
+    <div class="footer">Saga data-driven · Style BOGOSS</div>
+  </div>
+</body>
+</html>
