@@ -202,3 +202,4 @@ RÉSULTAT : Slide moderne, impactante, mettant en évidence les problèmes de l'
 - [ ] Tous les textes lisibles et bien hiérarchisés
 
 
+
