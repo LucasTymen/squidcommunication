@@ -463,11 +463,12 @@ Résultats & Performance - Métriques réelles
 ⚡ Cache hit : < 0.1s (mesuré, si cache hit)
 🛡️ Avec Tor : 5-8s/requête (réalité production)
 📊 Gain cache : 98x plus rapide (benchmark : 100 contacts)
-🔄 Sources : INSEE (API gratuite), Pappers (API doc)
-📈 Rate limiting : Max 10-12 req/min (humanisation)
+🔄 Import CSV : 100% succès (145 créés, 0 ignorés)
+🆕 Normalisation : Détection auto colonnes (IntelligentMapper)
 
 Performance réelle : Lent avec Tor/humanisation (5-8s),
 rapide seulement avec cache hit (< 0.1s)
+🆕 Import CSV : Refactorisation complète Nov 2025
 
 🚀 Découvrir l'architecture complète
 → Testez le module Enriched
@@ -499,11 +500,12 @@ CONTENU :
      - Badge "🛡️"
      - Texte "Performance réelle (Tor + humanisation)"
      - Sous-texte : "Max 10-12 req/min (rate limiting)"
-  3. "Sources : INSEE, Pappers" 
-     - Icônes sources réelles alignées, couleur violet (#6366f1)
+  3. "Import CSV : 100%" 
+     - Graphique pie chart vert (#10b981), 100% rempli
+     - Icône fichier CSV avec checkmark
      - Badge "🔄"
-     - Texte "APIs officielles documentées"
-     - Sous-texte : "INSEE (gratuit), Pappers (API)"
+     - Texte "Succès import (145 créés, 0 ignorés)"
+     - Sous-texte : "🆕 Détection auto colonnes (IntelligentMapper)"
   4. "Gain cache : 98x" 
      - Graphique comparatif avant/après, couleur cyan (#06b6d4)
      - Icône cache avec flèche montante
@@ -580,9 +582,11 @@ RÉSULTAT : Slide final impactant avec métriques RÉELLES vérifiables, CTA cla
 ### Points clés à mettre en avant
 1. **Architecture microservices** : 9 services Docker orchestrés
 2. **Module Enriched** : Orchestration intelligente (éviter termes Kali/OSINT)
-3. **Performance** : Enrichissement < 5s, cache 85%+
-4. **Scalabilité** : Millions de données, parallélisation
-5. **Sécurité** : Réseau isolé, volumes persistants
+3. **Performance** : Cache hit < 0.1s, Tor 5-8s/req (réalité production)
+4. **🆕 Import CSV intelligent** : 100% succès avec détection auto colonnes (Nov 2025)
+5. **🆕 Normalisation** : Refactorisation complète avec IntelligentMapper
+6. **Scalabilité** : Millions de données, parallélisation
+7. **Sécurité** : Réseau isolé, volumes persistants
 
 ### Ton et style
 - **Ton** : Technique mais accessible

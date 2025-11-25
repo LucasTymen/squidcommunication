@@ -457,11 +457,12 @@ CONTENU :
      - Badge "🛡️"
      - Texte "Performance réelle (Tor + humanisation)"
      - Sous-texte : "Max 10-12 req/min (rate limiting)"
-  3. "Sources : INSEE, Pappers" 
-     - Icônes sources réelles alignées, couleur violet (#6366f1)
+  3. "Import CSV : 100%" 
+     - Graphique pie chart vert (#10b981), 100% rempli
+     - Icône fichier CSV avec checkmark
      - Badge "🔄"
-     - Texte "APIs officielles documentées"
-     - Sous-texte : "INSEE (gratuit), Pappers (API)"
+     - Texte "Succès import (145 créés, 0 ignorés)"
+     - Sous-texte : "🆕 Détection auto colonnes (IntelligentMapper)"
   4. "Gain cache : 98x" 
      - Graphique comparatif avant/après, couleur cyan (#06b6d4)
      - Icône cache avec flèche montante
@@ -474,8 +475,9 @@ CONTENU :
 - Format : 1080x1080px
 - Fond : dégradé subtil (#f8fafc vers blanc)
 - ⚠️ CRITIQUE : Utiliser UNIQUEMENT les métriques réelles mesurées dans les benchmarks (docs/archive/2025-10/BENCHMARK_RESULTS.md). AUCUN chiffre inventé.
+- 🆕 **Import CSV** : Ajouter métrique "Import CSV : 100%" avec détails refactorisation Nov 2025 (IntelligentMapper, détection auto colonnes)
 
-RÉSULTAT : Slide final impactant avec métriques RÉELLES vérifiables, CTA clair et actionnable, effet "whaou" basé sur la réalité
+RÉSULTAT : Slide final impactant avec métriques RÉELLES vérifiables, CTA clair et actionnable, effet "whaou" basé sur la réalité, incluant les dernières améliorations (import CSV intelligent)
 ```
 
 ---

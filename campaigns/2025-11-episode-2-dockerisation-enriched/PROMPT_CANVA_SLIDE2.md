@@ -201,3 +201,4 @@ RÉSULTAT : Slide moderne, impactante, mettant en évidence les problèmes de l'
 - [ ] Effet glassmorphism sur la carte principale
 - [ ] Tous les textes lisibles et bien hiérarchisés
 
+

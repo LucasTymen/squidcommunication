@@ -304,14 +304,15 @@
           </div>
         </div>
         <div class="metric sources">
-          <div class="metric-label">🔄 Sources</div>
-          <div class="metric-value" style="font-size: 28px;">APIs officielles</div>
-          <div class="chart-pie"></div>
+          <div class="metric-label">🔄 Import CSV</div>
+          <div class="metric-value" style="font-size: 32px;">100%</div>
+          <div class="chart-pie" style="background: conic-gradient(#10b981 0deg 360deg, rgba(226, 232, 240, 0.2) 360deg 360deg);"></div>
           <div class="metric-desc">
-            <strong>INSEE :</strong> API gratuite<br/>
-            <strong>Pappers :</strong> API documentée<br/>
-            <strong>Société.com :</strong> Scraper<br/>
-            <span style="font-size: 14px; opacity: 0.8;">Documentation vérifiée</span>
+            <strong>Avant :</strong> 145 ignorés, 0 créés<br/>
+            <strong>Après :</strong> 145 créés, 0 ignorés<br/>
+            <strong>Détection :</strong> Auto colonnes<br/>
+            <strong>🆕 Normalisation :</strong> IntelligentMapper<br/>
+            <span style="font-size: 14px; opacity: 0.8;">Refactorisation complète Nov 2025</span>
           </div>
         </div>
         <div class="metric gain">
@@ -333,7 +334,9 @@
         <div class="warning-text">
           <strong>Lent avec Tor/humanisation :</strong> 5-8s par requête<br/>
           <strong>Rapide seulement avec cache hit :</strong> &lt; 0.1s<br/>
-          <strong>Réalité production :</strong> Mix des deux selon cache
+          <strong>Réalité production :</strong> Mix des deux selon cache<br/>
+          <strong>🆕 Import CSV :</strong> 100% succès avec détection auto colonnes (IntelligentMapper)<br/>
+          <strong>🆕 Normalisation :</strong> Refactorisation complète Nov 2025 - Support multi-variantes
         </div>
       </div>
       <div style="text-align: center; margin-top: 20px;">
