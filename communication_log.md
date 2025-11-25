@@ -33,6 +33,65 @@
 
 ---
 
+## [2025-11-25 23:45] 📁 Structure Standardisée des Articles
+
+- **Action** : Organisation standardisée des articles avec structure `article-X-nom/Presentation/`
+- **Statut** : ✅ Structure créée et articles préparés
+- **Localisation** : `articles/`
+
+### 📋 Structure Standardisée
+
+**Format obligatoire** :
+```
+articles/
+└── article-X-nom-de-l-article/
+    ├── Presentation/              # Slides HTML générées (OBLIGATOIRE)
+    │   ├── slide1.html
+    │   ├── slide2.html
+    │   └── ...
+    ├── linkedin/                 # Posts LinkedIn
+    ├── assets/                   # Assets (images, vidéos)
+    ├── PROMPTS_INFOGRAFIES_CLAUDE.md
+    ├── campaign.json
+    └── README.md
+```
+
+### ✅ Actions Réalisées
+
+**Réorganisation** :
+- ✅ Épisode 2 réorganisé : `articles/article-2-architecture-docker-enriched/`
+- ✅ Slides déplacées vers `Presentation/` (9 slides HTML)
+- ✅ Contenu existant préservé (linkedin/, assets/, prompts, etc.)
+
+**Préparation articles** :
+- ✅ Article 3 : `article-3-algorithmes-matching-intelligents/` (README créé)
+- ✅ Article 4 : `article-4-import-csv-intelligent/` (README créé)
+- ✅ Article 5 : `article-5-15-job-boards-francais/` (README créé)
+
+**Documentation** :
+- ✅ Charte éditoriale mise à jour avec structure standardisée
+- ✅ Règles de nommage documentées (kebab-case, pas d'espaces)
+- ✅ Workflow de création documenté
+
+### 📝 Règles de Nommage
+
+- **Dossier article** : `article-X-nom-de-l-article` (kebab-case, pas d'espaces)
+- **Slides** : Toujours dans `Presentation/` (avec majuscule)
+- **Format slides** : `slide1.html`, `slide2.html`, etc.
+- **Exemples** :
+  - ✅ `article-2-architecture-docker-enriched/`
+  - ✅ `article-3-algorithmes-matching-intelligents/`
+  - ❌ `article 2 - architecture docker/` (espaces interdits)
+
+### 🎯 Prochaines Étapes
+
+- [ ] Générer slides pour articles 3, 4, 5
+- [ ] Créer posts LinkedIn pour articles 3, 4, 5
+- [ ] Préparer prompts infographies
+- [ ] Créer assets (images, vidéos)
+
+---
+
 ## [2025-11-22 15:00] 🎯 Algorithmes Matching Intelligents - Phase Finale Terminée
 
 ### 🏆 RÉSULTAT FINAL

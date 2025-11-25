@@ -590,6 +590,53 @@
 
 ---
 
+## 📁 Structure des Articles
+
+### Organisation des Fichiers (OBLIGATOIRE)
+
+**⚠️ CRITIQUE** : Chaque article doit suivre cette structure standardisée
+
+#### Structure Standard
+```
+articles/
+└── article-X-nom-de-l-article/
+    ├── Presentation/              # Slides HTML générées
+    │   ├── slide1.html
+    │   ├── slide2.html
+    │   └── ...
+    ├── linkedin/                 # Posts LinkedIn
+    │   └── post-01-nom.md
+    ├── assets/                   # Assets (images, vidéos)
+    │   ├── original/
+    │   └── sanitized/
+    ├── PROMPTS_INFOGRAFIES_CLAUDE.md
+    ├── campaign.json
+    ├── README.md
+    └── ...
+```
+
+#### Règles de Nommage
+- **Dossier article** : `article-X-nom-de-l-article` (kebab-case, pas d'espaces)
+- **Slides** : Toujours dans `Presentation/` (avec majuscule)
+- **Format slides** : `slide1.html`, `slide2.html`, etc.
+- **Posts LinkedIn** : Dans `linkedin/post-01-nom.md`
+
+#### Exemples
+- ✅ `article-2-architecture-docker-enriched/`
+- ✅ `article-3-algorithmes-matching-intelligents/`
+- ✅ `article-4-import-csv-intelligent/`
+- ❌ `article 2 - architecture docker/` (espaces interdits)
+- ❌ `Article-2/` (pas de majuscules)
+
+#### Workflow de Création
+1. **Créer dossier** : `articles/article-X-nom/`
+2. **Créer sous-dossier** : `articles/article-X-nom/Presentation/`
+3. **Générer slides** : Stocker dans `Presentation/`
+4. **Créer contenu** : Posts, prompts, assets dans dossier racine
+5. **Documenter** : README.md avec métadonnées
+
+---
+
 ## 📝 Bonnes Pratiques
 
 ### ✅ À FAIRE
@@ -602,6 +649,7 @@
 - ✅ **Hashtags OBLIGATOIRES** : Toujours inclure 5-8 hashtags dans texte principal, 10-15 dans slide final
 - ✅ **Mots-clés naturels** : Intégrer mots-clés techniques et métiers dans le texte
 - ✅ **Référencement** : Optimiser pour recherche LinkedIn et Google
+- ✅ **Structure standardisée** : Respecter format `article-X-nom/Presentation/`
 
 ### ❌ À ÉVITER
 - ❌ Métriques inventées (2M entreprises, 85% hit rate non mesuré)
@@ -672,4 +720,33 @@
 
 **Dernière mise à jour** : 2025-11-25  
 **Prochaine review** : Après création Épisode 3
+
+---
+
+## 📝 Log des Modifications
+
+### [2025-11-25 23:45] Structure Standardisée des Articles
+
+**Changements** :
+- ✅ Structure standardisée créée : `articles/article-X-nom/Presentation/`
+- ✅ Épisode 2 réorganisé : `articles/article-2-architecture-docker-enriched/`
+- ✅ Slides déplacées vers `Presentation/` (9 slides)
+- ✅ Articles 3, 4, 5 préparés avec README.md
+- ✅ Charte éditoriale mise à jour avec structure standardisée
+
+**Règles ajoutées** :
+- Structure obligatoire : `article-X-nom/Presentation/`
+- Slides toujours dans `Presentation/` (avec majuscule)
+- Format kebab-case pour noms de dossiers
+- Workflow de création documenté
+
+**Fichiers créés** :
+- `articles/article-3-algorithmes-matching-intelligents/README.md`
+- `articles/article-4-import-csv-intelligent/README.md`
+- `articles/article-5-15-job-boards-francais/README.md`
+
+**Prochaines étapes** :
+- Générer slides pour articles 3, 4, 5
+- Créer posts LinkedIn
+- Préparer prompts infographies
 

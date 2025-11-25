@@ -1,0 +1,91 @@
+{
+  "campaign_id": "2025-11-episode-2-dockerisation-enriched",
+  "created_at": "2025-11-13T10:00:00Z",
+  "updated_at": "2025-11-13T10:00:00Z",
+  "status": "draft",
+  "objective": "Démontrer l'architecture Docker de SquidResearch et les capacités du module Enriched pour l'enrichissement intelligent de données B2B",
+  "message_key": "SquidResearch : Architecture Docker + Module Enriched - Enrichissement de données B2B à grande échelle",
+  "platforms": [
+    "linkedin"
+  ],
+  "mcp_collaboration": {
+    "calendar_event_id": "",
+    "notion_template": "",
+    "drive_folder": "",
+    "tasks": [
+      "Créer événement GCal pour planning publication",
+      "Organiser dossier Drive pour assets infographies",
+      "Générer template Notion pour suivi KPIs",
+      "Créer infographies avec Claude (prompts fournis)"
+    ]
+  },
+  "content": {
+    "summary": "Épisode 2 : Découverte de l'architecture Docker de SquidResearch et du module Enriched. Approche data-driven avec infographies sur la dockerisation, les principes de fonctionnement, les mappages et les structures réseau. Focus sur l'enrichissement intelligent de données B2B.",
+    "hashtags": [
+      "#SquidResearch",
+      "#Docker",
+      "#Architecture",
+      "#EnrichissementDonnées",
+      "#B2B",
+      "#DevOps",
+      "#DataDriven",
+      "#TechInnovation"
+    ],
+    "cta": "Découvrir l'architecture complète et tester le module Enriched"
+  },
+  "links": {
+    "assets": "campaigns/2025-11-episode-2-dockerisation-enriched/assets/",
+    "analytics": "campaigns/2025-11-episode-2-dockerisation-enriched/archive/analytics.json"
+  },
+  "posts": [
+    {
+      "platform": "linkedin",
+      "type": "carousel",
+      "status": "draft",
+      "scheduled_date": "2025-11-15T10:00:00Z",
+      "title": "Épisode 2 : Architecture Docker & Module Enriched",
+      "file": "linkedin/post-01-dockerisation-enriched.md",
+      "slides_count": 9
+    }
+  ],
+  "security_checklist": {
+    "no_ip_visible": false,
+    "credentials_masked": false,
+    "no_tokens": false,
+    "client_data_anonymized": false,
+    "internal_urls_masked": false,
+    "env_vars_hidden": false,
+    "validation_script_run": false,
+    "validated_by": "",
+    "validated_at": ""
+  },
+  "kpis": {
+    "target": {
+      "linkedin_impressions": 1000,
+      "linkedin_engagement": 80,
+      "carousel_completion_rate": 0.6,
+      "cta_clicks": 50,
+      "website_visits": 100,
+      "comments": 15
+    },
+    "actual": {
+      "linkedin_impressions": 0,
+      "linkedin_engagement": 0,
+      "carousel_completion_rate": 0,
+      "cta_clicks": 0,
+      "website_visits": 0,
+      "comments": 0
+    }
+  },
+  "notes": [
+    "Épisode 2 d'une série sur l'architecture et les fonctionnalités de SquidResearch",
+    "Focus sur dockerisation et module Enriched (éviter termes Kali/OSINT)",
+    "⚠️ APPROCHE VRAIMENT DATA-DRIVEN : Uniquement métriques réelles vérifiables",
+    "⚠️ LIRE AVERTISSEMENT_METRIQUES.md avant création infographies",
+    "Charte graphique BOGOSS : gradients violets/bleus, style moderne",
+    "9 slides carousel pour effet 'whaou' basé sur réalité technique",
+    "Infographies à créer : architecture Docker, flux de données, mappages réseau",
+    "Métriques réelles : Benchmarks dans docs/archive/2025-10/BENCHMARK_RESULTS.md"
+  ]
+}
+

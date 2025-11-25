@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>SquidResearch — Épisode 2 (Slide 1)</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', Arial, sans-serif;
+      color: #f8fafc;
+      background: radial-gradient(circle at 20% 20%, rgba(90, 217, 255, 0.28), transparent 45%),
+                  radial-gradient(circle at 80% 0%, rgba(132, 94, 247, 0.35), transparent 40%),
+                  linear-gradient(135deg, #090817 0%, #1c0f39 45%, #2f1b63 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 60px;
+    }
+    .card {
+      width: 1080px;
+      height: 1080px;
+      border-radius: 48px;
+      padding: 80px 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: rgba(15, 23, 42, 0.35);
+      backdrop-filter: blur(24px);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      box-shadow: 0 40px 90px -30px rgba(17, 24, 39, 0.7);
+      position: relative;
+    }
+    .badge {
+      align-self: flex-start;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.35em;
+      background: linear-gradient(90deg, rgba(139, 92, 246, 0.85), rgba(14, 165, 233, 0.75));
+      color: #0b1120;
+      font-weight: 600;
+      animation: badgePulse 2s ease-in-out infinite;
+    }
+    h1 {
+      font-size: 72px;
+      line-height: 1.05;
+      margin: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: titleGradient 3s ease-in-out infinite;
+    }
+    h2 {
+      font-size: 36px;
+      font-weight: 500;
+      margin: 16px 0 0;
+      color: rgba(226, 232, 240, 0.9);
+      animation: fadeInUp 0.8s ease-out;
+    }
+    .intro-text {
+      font-size: 24px;
+      color: rgba(203, 213, 225, 0.85);
+      margin: 20px 0 30px 0;
+      line-height: 1.4;
+      animation: fadeInUp 1s ease-out 0.2s both;
+    }
+    .architecture-container {
+      position: relative;
+      width: 100%;
+      height: 420px;
+      margin: 20px 0;
+    }
+    .service {
+      position: absolute;
+      background: rgba(30, 41, 59, 0.8);
+      border: 2px solid;
+      border-radius: 12px;
+      padding: 12px 16px;
+      text-align: center;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      will-change: transform, opacity;
+      animation: serviceAppear 0.6s ease-out both, servicePulse 2s ease-in-out 1s infinite;
+      width: 110px;
+      height: 70px;
+    }
+    .service.data {
+      border-color: #3b82f6;
+      box-shadow: 0 8px 32px rgba(59, 130, 246, 0.4);
+    }
+    .service.app {
+      border-color: #10b981;
+      box-shadow: 0 8px 32px rgba(16, 185, 129, 0.4);
+    }
+    .service.tools {
+      border-color: #6366f1;
+      box-shadow: 0 8px 32px rgba(99, 102, 241, 0.4);
+    }
+    .service-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: rgba(226, 232, 240, 0.95);
+      margin-bottom: 2px;
+    }
+    .service-desc {
+      font-size: 10px;
+      color: rgba(203, 213, 225, 0.75);
+      line-height: 1.2;
+    }
+    /* Positions optimisées avec Redis déplacé et Tor repositionné */
+    .service.postgres { top: 20px; left: 30px; animation-delay: 0.1s; }
+    .service.redis { top: 20px; left: 480px; animation-delay: 0.2s; } /* +300px */
+    .service.django { top: 120px; left: 30px; animation-delay: 0.3s; }
+    .service.celery-worker { top: 220px; left: 30px; animation-delay: 0.4s; }
+    .service.celery-beat { top: 320px; left: 30px; animation-delay: 0.5s; }
+    .service.react { top: 120px; right: 30px; animation-delay: 0.6s; }
+    .service.n8n { top: 220px; right: 30px; animation-delay: 0.7s; }
+    .service.flowise { top: 320px; right: 30px; animation-delay: 0.8s; }
+    .service.tor { top: 350px; left: 340px; animation-delay: 0.9s; } /* 50% - 100px = 440 - 100 = 340px */
+    .network-lines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .connection-path {
+      stroke: rgba(99, 102, 241, 0.5);
+      stroke-width: 2;
+      fill: none;
+      stroke-dasharray: 5,5;
+      animation: lineFlow 2s linear infinite;
+    }
+    .network-badge {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(236, 72, 153, 0.3));
+      border: 2px solid rgba(99, 102, 241, 0.6);
+      border-radius: 16px;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: 600;
+      color: rgba(226, 232, 240, 0.95);
+      z-index: 10;
+      animation: networkPulse 2s ease-in-out infinite;
+      width: 200px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .footer {
+      font-size: 24px;
+      color: rgba(148, 163, 184, 0.85);
+      animation: fadeInUp 1.2s ease-out 1s both;
+    }
+    @keyframes badgePulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.9; }
+    }
+    @keyframes titleGradient {
+      0%, 100% { filter: hue-rotate(0deg); }
+      50% { filter: hue-rotate(10deg); }
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes serviceAppear {
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+    @keyframes servicePulse {
+      0%, 100% {
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      }
+      50% {
+        box-shadow: 0 12px 40px rgba(99, 102, 241, 0.5);
+      }
+    }
+    @keyframes lineFlow {
+      0% { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: 20; }
+    }
+    @keyframes networkPulse {
+      0%, 100% {
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+        transform: translate(-50%, -50%) scale(1);
+      }
+      50% {
+        box-shadow: 0 0 30px rgba(99, 102, 241, 0.6);
+        transform: translate(-50%, -50%) scale(1.05);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="badge">Épisode 2</div>
+    <div>
+      <h1>🐳 Architecture Docker</h1>
+      <h2>9 services orchestrés pour SquidResearch</h2>
+      <p class="intro-text">
+        Stack complète pour l'enrichissement B2B : base de données, workflows IA, chaque service a un rôle précis.
+      </p>
+      <div class="architecture-container">
+        <svg class="network-lines" viewBox="0 0 880 420" preserveAspectRatio="xMidYMid meet">
+          <!-- Architecture optimisée : flèches sans pointes, sans chevauchements
+               Services: width 110px, height 70px
+               Badge réseau: centre (440px, 210px), width 200px, height 50px
+               Bords badge: gauche 340px, droite 540px, haut 185px, bas 235px
+               
+               Stratégie anti-chevauchement : 
+               - Coudes horizontaux à différentes hauteurs pour éviter les intersections
+               - Points d'arrivée bien espacés sur les bords du badge
+          -->
+          
+          <!-- postgres (30px, 20px): bord DROIT (140px) au bord BAS (90px) -> badge GAUCHE (340px, 188px) -->
+          <path class="connection-path" d="M 140 90 L 220 90 L 220 188 L 340 188" />
+          
+          <!-- redis (480px, 20px): bord GAUCHE (480px) au bord BAS (90px) -> badge DROIT (540px, 192px) -->
+          <path class="connection-path" d="M 480 90 L 400 90 L 400 192 L 540 192" />
+          
+          <!-- django (30px, 120px): bord DROIT (140px) au centre Y (155px) -> badge GAUCHE (340px, 200px) -->
+          <path class="connection-path" d="M 140 155 L 230 155 L 230 200 L 340 200" />
+          
+          <!-- celery-worker (30px, 220px): bord DROIT (140px) au bord HAUT (220px) -> badge GAUCHE (340px, 212px) -->
+          <path class="connection-path" d="M 140 220 L 240 220 L 240 212 L 340 212" />
+          
+          <!-- celery-beat (30px, 320px): bord DROIT (140px) au bord HAUT (320px) -> badge GAUCHE (340px, 228px) -->
+          <path class="connection-path" d="M 140 320 L 250 320 L 250 228 L 340 228" />
+          
+          <!-- react (right 30px, top 120px): bord GAUCHE (740px) au centre Y (155px) -> badge DROIT (540px, 202px) -->
+          <path class="connection-path" d="M 740 155 L 650 155 L 650 202 L 540 202" />
+          
+          <!-- n8n (right 30px, top 220px): bord GAUCHE (740px) au bord HAUT (220px) -> badge DROIT (540px, 214px) -->
+          <path class="connection-path" d="M 740 220 L 640 220 L 640 214 L 540 214" />
+          
+          <!-- flowise (right 30px, top 320px): bord GAUCHE (740px) au bord HAUT (320px) -> badge DROIT (540px, 226px) -->
+          <path class="connection-path" d="M 740 320 L 630 320 L 630 226 L 540 226" />
+          
+          <!-- tor (340px, 350px): bord HAUT (350px) au centre X (395px) -> coude -> badge BAS (440px, 235px) -->
+          <path class="connection-path" d="M 395 350 L 395 260 L 440 260 L 440 235" />
+        </svg>
+        
+        <div class="network-badge">squidresearch_network</div>
+        
+        <div class="service data postgres">
+          <div class="service-name">📊 PostgreSQL</div>
+          <div class="service-desc">Base de données</div>
+        </div>
+        <div class="service data redis">
+          <div class="service-name">⚡ Redis</div>
+          <div class="service-desc">Cache &amp; Queue</div>
+        </div>
+        <div class="service app django">
+          <div class="service-name">🐍 Django</div>
+          <div class="service-desc">API REST</div>
+        </div>
+        <div class="service app celery-worker">
+          <div class="service-name">⚙️ Celery Worker</div>
+          <div class="service-desc">Tâches async</div>
+        </div>
+        <div class="service app celery-beat">
+          <div class="service-name">⏰ Celery Beat</div>
+          <div class="service-desc">Planificateur</div>
+        </div>
+        <div class="service tools react">
+          <div class="service-name">⚛️ React</div>
+          <div class="service-desc">Frontend</div>
+        </div>
+        <div class="service tools n8n">
+          <div class="service-name">🔄 n8n</div>
+          <div class="service-desc">Automation</div>
+        </div>
+        <div class="service tools flowise">
+          <div class="service-name">🤖 Flowise</div>
+          <div class="service-desc">IA Workflows</div>
+        </div>
+        <div class="service tools tor">
+          <div class="service-name">🔒 Tor</div>
+          <div class="service-desc">Anonymat</div>
+        </div>
+      </div>
+      <p style="font-size: 20px; color: rgba(148, 163, 184, 0.8); margin-top: 15px; text-align: center; animation: fadeInUp 1.4s ease-out 1.2s both;">
+        Réseau Docker isolé · Volumes persistants · Orchestration via docker-compose
+      </p>
+    </div>
+    <div class="footer">Saga data-driven · Style BOGOSS</div>
+  </div>
+</body>
+</html>
