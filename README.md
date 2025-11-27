@@ -119,5 +119,22 @@ Toutes les actions MCP sont consignées dans `squidResearch/communication_projet
 ---
 
 **Créé le** : 2025-11-12
+**Dernière mise à jour** : 2025-11-27
 **Lié à** : [squidResearch](../squidResearch)
 **Log principal** : `squidResearch/communication_projet.md`
+
+## 📊 Statistiques Actuelles (2025-11-27)
+
+- **Utilisateurs** : 1 actif
+- **Candidatures** : 6 (6 ce mois)
+- **Séquences de relances** : 5 actives
+- **Relances programmées** : 17
+- **Entreprises** : 10
+- **Intégrations Google** : 1 active
+
+## 🚀 Fonctionnalités Récentes
+
+- ✅ **Google OAuth fonctionnel** : Connexion réussie avec scope `openid` corrigé
+- ✅ **One-Click Application** : Candidature automatique complète depuis URL
+- ✅ **Enrichissement amélioré** : Contraste optimisé, boutons visibles, CRUD prospects
+- ✅ **Relances automatiques** : Envoi via Gmail OAuth programmé (Celery Beat)
