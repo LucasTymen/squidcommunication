@@ -14,10 +14,11 @@
 
 **Progression logique** :
 1. **Fondations** (Épisodes 1-2) : Architecture, infrastructure
-2. **Intelligence** (Épisodes 3-5) : Algorithmes, matching, normalisation
-3. **Intégrations** (Épisodes 6-7) : Job boards, enrichissement multi-sources
-4. **Expérience** (Épisodes 8-9) : UX, gamification, workflows
-5. **Production** (Épisodes 10+) : Sécurité, performance, scale
+2. **Intelligence** (Épisode 3) : Algorithmes, matching
+3. **Intégrations** (Épisodes 4-5) : OAuth Google, n8n/Flowise
+4. **Enrichissement** (Épisodes 6-7) : Tor, sécurité, job boards
+5. **Expérience** (Épisodes 8-9) : UX, gamification, workflows
+6. **Production** (Épisodes 10+) : Performance, scale
 
 ---
 
@@ -90,72 +91,77 @@
 
 ---
 
-### 🎯 **Épisode 4** : Import CSV Intelligent & Normalisation
-**Thème** : De 0% à 100% de succès grâce à l'IA  
-**Format** : Carousel 7 slides  
-**Priorité** : 🔥 HAUTE (refactorisation récente)
-
-**Contenu proposé** :
-1. **Accroche** : "145 entreprises ignorées → 145 créées : comment ?"
-2. **Problème** : Module normalisation "tout pourri" (100% ignorés)
-3. **Solution** : IntelligentMapper + détection auto colonnes
-4. **Détection intelligente** : Multi-variantes (Entreprise, Société, Nom, etc.)
-5. **Normalisation** : Transformation automatique vers schéma unifié
-6. **Résultats** : 100% succès (145 créés, 0 ignorés)
-7. **CTA** : Tester l'import intelligent
-
-**Points clés** :
-- Avant/Après (145 ignorés → 145 créés)
-- Détection automatique colonnes
-- Support multi-variantes
-- Fallback intelligent
-- Nettoyage automatique domaines
-
-**Métriques à utiliser** :
-- Avant : 145 ignorés, 0 créés, 0 mis à jour
-- Après : 145 créés, 0 ignorés (100% succès)
-- Détection : IntelligentMapper
-- Support : Multi-variantes colonnes
-
-**Fichiers de référence** :
-- `apps/documents/workspace_manager.py` (import_companies_from_csv)
-- `apps/documents/data_mapper.py` (IntelligentMapper)
-- `docs/TECHNICAL.md` (section refactorisation)
-
----
-
-### 🎯 **Épisode 5** : 15 Job Boards Français - Intégration Complète
-**Thème** : Recherche d'emploi multi-sources  
+### 🎯 **Épisode 4** : Autorisation & OAuth Google - Sécurité et Intégration
+**Thème** : Authentification OAuth2 et intégration Google  
 **Format** : Carousel 8 slides  
 **Priorité** : 🔥 HAUTE (feature majeure)
 
 **Contenu proposé** :
-1. **Accroche** : "Comment chercher sur 15 job boards en 1 clic ?"
-2. **Problème** : Recherche manuelle = 15 sites à visiter
-3. **Solution** : Service unifié 15 job boards
-4. **Job boards supportés** : Liste visuelle (Indeed, HelloWork, APEC, WTTJ, etc.)
-5. **Architecture** : APIs prioritaires + fallback scraping
-6. **Fonctionnalités** : Recherche parallèle, déduplication, rate limiting
-7. **Résultats** : Recherche multi-sources en < 10s
-8. **CTA** : Découvrir l'intégration job boards
+1. **Accroche** : "Comment sécuriser l'accès à Gmail, Calendar et Drive ?"
+2. **Problème** : Authentification manuelle = tokens expirés, sécurité faible
+3. **Solution** : OAuth2 Google avec refresh automatique
+4. **Scopes Google** : Gmail, Calendar, Drive (7 scopes configurés)
+5. **Sécurité** : Refresh tokens automatique, credentials chiffrés
+6. **Intégrations** : Envoi emails, création événements, stockage fichiers
+7. **Résultats** : Authentification sécurisée, tokens auto-refresh
+8. **CTA** : Découvrir l'intégration OAuth Google
 
 **Points clés** :
-- 15 job boards français
-- APIs officielles prioritaires
-- Fallback scraping intelligent
-- Recherche parallèle asynchrone
-- Déduplication automatique
+- OAuth2 Google avec 7 scopes (Gmail, Calendar, Drive)
+- Refresh automatique des tokens
+- Credentials chiffrés en base
+- Intégration complète Gmail/Calendar/Drive
+- Sécurité renforcée
 
 **Métriques à utiliser** :
-- 15 job boards supportés
-- 6 nouveaux connecteurs créés
-- Recherche parallèle (performance)
-- Déduplication automatique
+- 7 scopes Google configurés
+- Refresh automatique tokens
+- Credentials chiffrés
+- Intégration 3 services (Gmail, Calendar, Drive)
 
 **Fichiers de référence** :
-- `apps/scrapper/enriched/french_job_boards_service.py`
-- `apps/jobboards/connectors/`
-- `apps/scrapper/enriched/scraper_registry.py`
+- `apps/integrations/services_google.py` (GoogleOAuthService)
+- `apps/emails/oauth_service.py` (GmailOAuthService)
+- `apps/integrations/models_google.py` (GoogleIntegration)
+- `docs/GOOGLE_OAUTH_DASHBOARD_INTEGRATION_COMPLETE.md`
+- `docs/GUIDE_CONNEXION_GOOGLE_OAUTH.md`
+
+---
+
+### 🎯 **Épisode 5** : Automatisation n8n & Flowise - Orchestration Intelligente
+**Thème** : Workflows automatisés et IA générative  
+**Format** : Carousel 8 slides  
+**Priorité** : 🔥 HAUTE (feature majeure)
+
+**Contenu proposé** :
+1. **Accroche** : "Comment orchestrer workflows et IA en 1 clic ?"
+2. **Problème** : Automatisation complexe, workflows manuels
+3. **Solution** : n8n + Flowise intégrés dans Docker
+4. **n8n** : Workflows automatisés (génération contenu, sync repos)
+5. **Flowise** : IA générative (LLM pour contenu, suggestions)
+6. **Architecture** : Services Docker, webhooks, API REST
+7. **Résultats** : Workflows automatisés, productivité x10
+8. **CTA** : Découvrir l'automatisation n8n/Flowise
+
+**Points clés** :
+- n8n : Workflows automatisés (génération contenu social, sync)
+- Flowise : IA générative (LLM pour contenu, suggestions intelligentes)
+- Architecture Docker : Services intégrés, webhooks
+- API REST : Communication Django ↔ n8n ↔ Flowise
+- Automatisation complète
+
+**Métriques à utiliser** :
+- 2 services d'automatisation (n8n, Flowise)
+- Workflows automatisés
+- Intégration Docker complète
+- Webhooks configurés
+
+**Fichiers de référence** :
+- `squidresearch/n8n_service.py` (N8NService)
+- `workflows/n8n/generate_social_content.json`
+- `workflows/n8n/sync_communication.json`
+- `docker-compose.yml` (services n8n, flowise)
+- `docs/INTEGRATIONS_COMMAND_CENTER.md`
 
 ---
 
@@ -508,12 +514,12 @@
 ### Q4 2025 (Nov-Déc)
 - ✅ **Épisode 2** : Architecture Docker (Nov 2025) - FAIT
 - 🎯 **Épisode 3** : Algorithmes Matching (Déc 2025) - PRIORITÉ
-- 🎯 **Épisode 4** : Import CSV Intelligent (Déc 2025) - PRIORITÉ
+- 🎯 **Épisode 4** : Autorisation & OAuth Google (Déc 2025) - PRIORITÉ
 
 ### Q1 2026 (Jan-Mar)
-- 🎯 **Épisode 5** : 15 Job Boards (Jan 2026)
-- 🎯 **Épisode 6** : Enrichissement Multi-Sources (Fév 2026)
-- 🎯 **Épisode 7** : Sécurisation (Mar 2026)
+- 🎯 **Épisode 5** : Automatisation n8n & Flowise (Jan 2026)
+- 🎯 **Épisode 6** : Enrichissement Multi-Sources & Tor (Fév 2026)
+- 🎯 **Épisode 7** : Sécurisation Complète (Mar 2026)
 
 ### Q2 2026 (Avr-Juin)
 - 🎯 **Épisode 8** : UX & Gamification (Avr 2026)
@@ -666,8 +672,8 @@ articles/
 ### Fichiers de référence par épisode
 - **Épisode 2** : `docker-compose.yml`, `apps/scrapper/enriched/`
 - **Épisode 3** : `apps/campaigns/matching_algorithms/`, `docs/PHASE_FINALE_RAPPORT_FINAL.md`
-- **Épisode 4** : `apps/documents/workspace_manager.py`, `apps/documents/data_mapper.py`
-- **Épisode 5** : `apps/scrapper/enriched/french_job_boards_service.py`, `apps/jobboards/connectors/`
+- **Épisode 4** : `apps/integrations/services_google.py`, `apps/emails/oauth_service.py`, `docs/GOOGLE_OAUTH_DASHBOARD_INTEGRATION_COMPLETE.md`
+- **Épisode 5** : `squidresearch/n8n_service.py`, `workflows/n8n/`, `docker-compose.yml` (n8n, flowise)
 - **Épisode 6** : `apps/scrapper/config/tor_config.py`, `apps/scrapper/enriched/tools/secure_session.py`
 - **Épisode 7** : `docs/SECURITY_COMPLETE_AUDIT.md`, `apps/security/tests/`
 - **Épisode 8** : `templates/components/game-modal.html`
@@ -690,12 +696,12 @@ articles/
 
 ### Court terme (2 semaines)
 4. 🎯 Créer Épisode 3 complet
-5. 🎯 Créer structure Épisode 4 (Import CSV)
+5. 🎯 Créer structure Épisode 4 (Autorisation & OAuth Google)
 6. 🎯 Planifier publication Épisode 3
 
 ### Moyen terme (1 mois)
-7. 🎯 Créer Épisode 4 complet
-8. 🎯 Préparer Épisode 5 (Job Boards)
+7. 🎯 Créer Épisode 4 complet (OAuth Google)
+8. 🎯 Préparer Épisode 5 (Automatisation n8n & Flowise)
 9. 🎯 Établir calendrier publication régulier
 
 ---
@@ -718,12 +724,36 @@ articles/
 
 ---
 
-**Dernière mise à jour** : 2025-11-25  
+**Dernière mise à jour** : 2025-11-26  
 **Prochaine review** : Après création Épisode 3
 
 ---
 
 ## 📝 Log des Modifications
+
+### [2025-11-26 00:45] Réorganisation Épisodes 4 & 5
+
+**Changements** :
+- ✅ **Épisode 4** : Changé de "Import CSV Intelligent" → **"Autorisation & OAuth Google"**
+- ✅ **Épisode 5** : Changé de "15 Job Boards Français" → **"Automatisation n8n & Flowise"**
+- ✅ Contenu mis à jour avec références techniques réelles
+- ✅ Progression logique ajustée (Intégrations avant Enrichissement)
+
+**Raison** :
+- Priorité sur OAuth Google et automatisation n8n/Flowise
+- Alignement avec l'état actuel du projet
+- Meilleure progression narrative
+
+**Fichiers de référence ajoutés** :
+- Épisode 4 : `apps/integrations/services_google.py`, `apps/emails/oauth_service.py`, `docs/GOOGLE_OAUTH_DASHBOARD_INTEGRATION_COMPLETE.md`
+- Épisode 5 : `squidresearch/n8n_service.py`, `workflows/n8n/`, `docs/INTEGRATIONS_COMMAND_CENTER.md`
+
+**Prochaines étapes** :
+- Créer structure article-4-oauth-google
+- Créer structure article-5-automatisation-n8n-flowise
+- Préparer prompts infographies pour épisodes 4 et 5
+
+---
 
 ### [2025-11-25 23:45] Structure Standardisée des Articles
 

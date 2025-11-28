@@ -61,10 +61,10 @@
       color: rgba(226, 232, 240, 0.9);
       animation: fadeInUp 0.8s ease-out;
     }
-    .content {
+    .intro-text {
       font-size: 24px;
       color: rgba(203, 213, 225, 0.85);
-      margin: 20px 0;
+      margin: 20px 0 30px 0;
       line-height: 1.4;
       animation: fadeInUp 1s ease-out 0.2s both;
     }
@@ -83,6 +83,10 @@
       backdrop-filter: blur(8px);
       animation: fadeInUp 1s ease-out both;
     }
+    .metric-card:nth-child(1) { animation-delay: 0.3s; }
+    .metric-card:nth-child(2) { animation-delay: 0.4s; }
+    .metric-card:nth-child(3) { animation-delay: 0.5s; }
+    .metric-card:nth-child(4) { animation-delay: 0.6s; }
     .metric-value {
       font-size: 56px;
       font-weight: 800;
@@ -96,11 +100,6 @@
       font-size: 18px;
       color: rgba(203, 213, 225, 0.8);
       font-weight: 500;
-    }
-    .footer {
-      font-size: 24px;
-      color: rgba(148, 163, 184, 0.85);
-      animation: fadeInUp 1.2s ease-out 1s both;
     }
     @keyframes badgePulse {
       0%, 100% { opacity: 1; transform: scale(1); }
@@ -121,28 +120,28 @@
     <div class="badge">Épisode 3</div>
     <div>
       <h1>Algorithmes de Matching Intelligents</h1>
-      <h2>Comment matcher un candidat avec 1000+ offres en &lt; 5s ?</h2>
-      <p class="content">5 algorithmes spécialisés basés sur des modèles mathématiques pour un matching précis et rapide</p>
-      <div class="metrics-grid">
-        <div class="metric-card" style="animation-delay: 0.3s;">
-          <div class="metric-value">5</div>
-          <div class="metric-label">Algorithmes Spécialisés</div>
-        </div>
-        <div class="metric-card" style="animation-delay: 0.4s;">
-          <div class="metric-value">26/26</div>
-          <div class="metric-label">Tests Passent</div>
-        </div>
-        <div class="metric-card" style="animation-delay: 0.5s;">
-          <div class="metric-value">62%</div>
-          <div class="metric-label">Coverage Global</div>
-        </div>
-        <div class="metric-card" style="animation-delay: 0.6s;">
-          <div class="metric-value">&gt;85%</div>
-          <div class="metric-label">Modules Critiques</div>
-        </div>
+      <h2>Pourquoi j'ai dû matcher 1000+ offres en &lt; 5s</h2>
+      <p class="intro-text">Lucas a construit SquidResearch pour accélérer sa prospection. Très vite, il a dû scorer des milliers d'offres et de profils en quelques secondes. Impossible sans modèles mathématiques solides : d'où ces 5 algorithmes spécialisés entraînés sur les données réelles du projet.</p>
+    </div>
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-value">5</div>
+        <div class="metric-label">Algorithmes Spécialisés</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">26/26</div>
+        <div class="metric-label">Tests Passent</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">62%</div>
+        <div class="metric-label">Coverage Global</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">&gt;85%</div>
+        <div class="metric-label">Modules Critiques</div>
       </div>
     </div>
-    <div class="footer">Saga data-driven · Style BOGOSS</div>
   </div>
 </body>
 </html>
+

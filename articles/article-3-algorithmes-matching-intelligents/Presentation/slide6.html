@@ -102,6 +102,14 @@
       color: rgba(148, 163, 184, 0.85);
       animation: fadeInUp 1.2s ease-out 1s both;
     }
+    .infographic {
+      margin-top: 20px;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      border-radius: 24px;
+      padding: 16px;
+      background: rgba(15, 23, 42, 0.35);
+      overflow: hidden;
+    }
     @keyframes badgePulse {
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.9; transform: scale(1.02); }
@@ -121,12 +129,47 @@
     <div class="badge">Épisode 3</div>
     <div>
       <h1>Algorithme 3 : SkillsMatching</h1>
-      <h2>Matching par compétences</h2>
-      <p class="content">Focus sur les compétences techniques et soft skills.</p>
-      <p class="content">Compare les compétences requises vs disponibles avec pondération intelligente.</p>
-      <p class="content">Détecte les compétences complémentaires et les gaps.</p>
+      <h2>Heatmap compétences vs exigences</h2>
+      <p class="content">SkillsMatching compare les compétences exigées par une offre et celles maîtrisées par un profil. Les weights sont configurables (tech ∕ soft) et la logique est décrite dans `skills_matching_algorithm.py`.</p>
+      <p class="content">La sortie est une heatmap avec bonus/malus (+/-) injectée ensuite dans le moteur d'explication automatique.</p>
+      <div class="infographic">
+        <svg width="800" height="240" viewBox="0 0 800 240">
+          <style>
+            .grid { fill: none; stroke: rgba(226,232,240,0.2); stroke-width: 1; }
+            .cell-pos { fill: rgba(34,197,94,0.6); }
+            .cell-neg { fill: rgba(248,113,113,0.6); }
+            .label { fill: #e2e8f0; font-size: 16px; font-family: 'Poppins', sans-serif; }
+          </style>
+          <rect x="150" y="40" width="500" height="150" class="grid"/>
+          <!-- columns -->
+          <line x1="250" y1="40" x2="250" y2="190" class="grid"/>
+          <line x1="350" y1="40" x2="350" y2="190" class="grid"/>
+          <line x1="450" y1="40" x2="450" y2="190" class="grid"/>
+          <line x1="550" y1="40" x2="550" y2="190" class="grid"/>
+          <!-- rows -->
+          <line x1="150" y1="90" x2="650" y2="90" class="grid"/>
+          <line x1="150" y1="140" x2="650" y2="140" class="grid"/>
+          <rect x="150" y="40" width="100" height="50" class="cell-pos"/>
+          <rect x="250" y="40" width="100" height="50" class="cell-pos" style="fill: rgba(34,197,94,0.8);"/>
+          <rect x="350" y="40" width="100" height="50" class="cell-neg"/>
+          <rect x="450" y="40" width="100" height="50" class="cell-pos"/>
+          <rect x="550" y="40" width="100" height="50" class="cell-neg"/>
+          <rect x="150" y="90" width="100" height="50" class="cell-neg"/>
+          <rect x="250" y="90" width="100" height="50" class="cell-pos"/>
+          <rect x="350" y="90" width="100" height="50" class="cell-pos"/>
+          <rect x="450" y="90" width="100" height="50" class="cell-neg"/>
+          <rect x="550" y="90" width="100" height="50" class="cell-pos"/>
+          <text x="100" y="70" class="label" text-anchor="end">Compétences techniques</text>
+          <text x="100" y="120" class="label" text-anchor="end">Soft skills</text>
+          <text x="200" y="210" class="label" text-anchor="middle">Stack</text>
+          <text x="300" y="210" class="label" text-anchor="middle">Architecture</text>
+          <text x="400" y="210" class="label" text-anchor="middle">Ops</text>
+          <text x="500" y="210" class="label" text-anchor="middle">Produit</text>
+          <text x="600" y="210" class="label" text-anchor="middle">Growth</text>
+        </svg>
+      </div>
     </div>
-    <div class="footer">Saga data-driven · Style BOGOSS</div>
+    <div class="footer">La saga data-driven de SquidResearch</div>
   </div>
 </body>
 </html>

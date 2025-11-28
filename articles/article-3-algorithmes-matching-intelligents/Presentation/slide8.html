@@ -102,6 +102,27 @@
       color: rgba(148, 163, 184, 0.85);
       animation: fadeInUp 1.2s ease-out 1s both;
     }
+    .infographic {
+      margin-top: 20px;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      border-radius: 24px;
+      padding: 16px;
+      background: rgba(15, 23, 42, 0.35);
+      overflow: hidden;
+    }
+    .cta {
+      margin-top: 32px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 32px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+      color: #0f172a;
+      font-weight: 600;
+      box-shadow: 0 24px 48px -30px rgba(236,72,153,0.6);
+      animation: fadeInUp 1.2s ease-out 0.4s both;
+    }
     @keyframes badgePulse {
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.9; transform: scale(1.02); }
@@ -121,14 +142,40 @@
     <div class="badge">Épisode 3</div>
     <div>
       <h1>Découvrir les Algorithmes</h1>
-      <h2>Matching intelligent pour prospection B2B</h2>
-      <p class="content">5 algorithmes spécialisés basés sur des modèles mathématiques.</p>
-      <p class="content">26/26 tests passent, coverage 62% (modules critiques &gt;85%).</p>
-      <p class="content" style="font-size: 20px; margin-top: 40px;">
+      <h2>CTA : explorer le matching intelligent</h2>
+      <p class="content">5 algorithmes validés (26/26 tests, coverage 62 %) sont disponibles dans SquidResearch. Chaque score 0-100 est exposé via API et via l’interface Command Center.</p>
+      <div class="infographic">
+        <svg width="820" height="220" viewBox="0 0 820 220">
+          <style>
+            .stage { fill: rgba(79,70,229,0.18); stroke: rgba(79,70,229,0.7); stroke-width: 2; rx: 20; ry: 20; }
+            .arrow { stroke: rgba(14,165,233,0.85); stroke-width: 3; fill: none; marker-end: url(#cta-arrow); }
+            .label { fill: #e2e8f0; font-size: 16px; font-family: 'Poppins', sans-serif; }
+          </style>
+          <defs>
+            <marker id="cta-arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(14,165,233,0.9)"/>
+            </marker>
+          </defs>
+          <rect x="40" y="60" width="170" height="100" class="stage"/>
+          <text x="125" y="110" text-anchor="middle" class="label">Données enrichies</text>
+          <rect x="300" y="30" width="220" height="70" class="stage"/>
+          <text x="410" y="70" text-anchor="middle" class="label">Core Matching Engine</text>
+          <rect x="300" y="120" width="220" height="70" class="stage"/>
+          <text x="410" y="160" text-anchor="middle" class="label">Explications + Logs</text>
+          <rect x="600" y="60" width="170" height="100" class="stage"/>
+          <text x="685" y="110" text-anchor="middle" class="label">API & UI Command Center</text>
+          <path d="M210 110 L300 65" class="arrow"/>
+          <path d="M210 110 L300 155" class="arrow"/>
+          <path d="M520 65 L600 110" class="arrow"/>
+          <path d="M520 155 L600 110" class="arrow"/>
+        </svg>
+      </div>
+      <div class="cta">Accéder à la doc + aux endpoints</div>
+      <p class="content" style="font-size: 20px; margin-top: 20px;">
         #SquidResearch #Matching #Algorithmes #IA #DataDriven #B2B #TechInnovation #Python #Django #Recrutement #Sourcing
       </p>
     </div>
-    <div class="footer">Saga data-driven · Style BOGOSS</div>
+    <div class="footer">La saga data-driven de SquidResearch</div>
   </div>
 </body>
 </html>

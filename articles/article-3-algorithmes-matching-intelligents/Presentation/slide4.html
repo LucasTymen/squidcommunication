@@ -102,6 +102,14 @@
       color: rgba(148, 163, 184, 0.85);
       animation: fadeInUp 1.2s ease-out 1s both;
     }
+    .infographic {
+      margin-top: 20px;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      border-radius: 24px;
+      padding: 16px;
+      background: rgba(15, 23, 42, 0.35);
+      overflow: hidden;
+    }
     @keyframes badgePulse {
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.9; transform: scale(1.02); }
@@ -121,12 +129,48 @@
     <div class="badge">Épisode 3</div>
     <div>
       <h1>Algorithme 1 : JobSearch</h1>
-      <h2>Candidat → Offres d'emploi</h2>
-      <p class="content">Calcule le score de compatibilité entre un profil candidat et une offre d'emploi.</p>
-      <p class="content">Prend en compte : compétences, expérience, localisation, salaire, type de contrat.</p>
-      <p class="content">Score normalisé 0-100 avec explication automatique du match.</p>
+      <h2>Prioriser les offres pertinentes</h2>
+      <p class="content">JobSearch consolide toutes les caractéristiques déclarées par une offre (stack, expérience, fourchette salaire, rythme) et les compare aux attributs du candidat stockés dans SquidResearch.</p>
+      <p class="content">Le score 0-100 est accompagné d'explications pondérées («+15 stack correspondante», «-8 disponibilité partielle»). Ces règles sont traçables dans `apps/campaigns/matching_algorithms/job_search.py`.</p>
+      <div class="metrics-grid" style="margin-top:10px">
+        <div class="metric-card">
+          <div class="metric-value">&lt;1s</div>
+          <div class="metric-label">Temps de calcul moyen</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">5 critères</div>
+          <div class="metric-label">Compétences, XP, salaire, rythme, localisation déclarée</div>
+        </div>
+      </div>
+      <div class="infographic">
+        <svg width="800" height="220" viewBox="0 0 800 220">
+          <style>
+            .node { fill: rgba(99,102,241,0.2); stroke: rgba(99,102,241,0.8); stroke-width: 2; rx: 16; ry: 16; }
+            .arrow { stroke: rgba(236,72,153,0.8); stroke-width: 3; fill: none; marker-end: url(#triangle); }
+            .label { fill: #e2e8f0; font-size: 18px; font-family: 'Poppins', sans-serif; }
+          </style>
+          <defs>
+            <marker id="triangle" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(236,72,153,0.9)"/>
+            </marker>
+          </defs>
+          <rect x="40" y="40" width="180" height="80" class="node"/>
+          <text x="130" y="85" text-anchor="middle" class="label">Offre</text>
+          <text x="130" y="110" text-anchor="middle" class="label">d'emploi</text>
+          <rect x="310" y="40" width="180" height="80" class="node"/>
+          <text x="400" y="85" text-anchor="middle" class="label">Extraction</text>
+          <text x="400" y="110" text-anchor="middle" class="label">caractéristiques</text>
+          <rect x="580" y="40" width="180" height="80" class="node"/>
+          <text x="670" y="85" text-anchor="middle" class="label">Score 0-100</text>
+          <text x="670" y="110" text-anchor="middle" class="label">+ explications</text>
+          <path d="M220 80 L310 80" class="arrow"/>
+          <path d="M490 80 L580 80" class="arrow"/>
+          <rect x="200" y="150" width="400" height="60" class="node"/>
+          <text x="400" y="185" text-anchor="middle" class="label">Features utilisées : stack, expérience, salaire, rythme, localisation déclarée</text>
+        </svg>
+      </div>
     </div>
-    <div class="footer">Saga data-driven · Style BOGOSS</div>
+    <div class="footer">La saga data-driven de SquidResearch</div>
   </div>
 </body>
 </html>

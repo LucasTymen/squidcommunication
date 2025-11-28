@@ -37,6 +37,31 @@ squidCommunication/
 - **squidCommunication** : Contenus marketing (public/semi-public)
 - **Liaison** : Variables d'environnement, pas de chemins relatifs fragiles
 
+## 🆕 Dernières Fonctionnalités
+
+### [2025-11-28] Module IA Documents - Phase 1 MVP Complète
+
+**Nouvelle fonctionnalité majeure** :
+- ✅ Analyse IA de CV et lettres de motivation
+- ✅ Scoring ATS et suggestions d'amélioration
+- ✅ Assistant de rédaction IA
+- ✅ Conformité RGPD complète (anonymisation, consentement, logs audit)
+- ✅ Versioning automatique des documents
+- ✅ Cache intelligent (Redis + DB)
+- ✅ Intégration n8n/Flowise pour orchestration asynchrone
+
+**Statistiques** :
+- 58 tests créés (43/43 unitaires passent)
+- 94.23% coverage sur modèles IA
+- ~2,500 lignes de code
+- 4 guides de documentation complets
+
+**Documentation** :
+- `docs/workflows/IA_DOCUMENTS_WORKFLOW.md` : Workflow complet
+- `docs/integrations/N8N_FLOWISE_IA_DOCUMENTS_SETUP.md` : Guide configuration
+
+---
+
 ## 🚀 Workflow
 
 ### 1. Créer une campagne
