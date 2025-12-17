@@ -1,0 +1,19 @@
+{
+  "article_id": "article-1-example",
+  "title": "Exemple Article - Contenu de Base",
+  "category": "articles-techniques",
+  "campaign_id": "campagne-q1-2026",
+  "order": 1,
+  "status": "draft",
+  "content_file": "content.md",
+  "created_at": "2025-12-12T20:00:00Z",
+  "updated_at": "2025-12-12T20:00:00Z",
+  "tags": ["exemple", "template", "markdown"],
+  "target_platforms": ["linkedin", "instagram", "twitter"],
+  "templates_used": {
+    "linkedin": ["article", "carousel"],
+    "instagram": ["post"],
+    "twitter": ["thread"]
+  }
+}
+

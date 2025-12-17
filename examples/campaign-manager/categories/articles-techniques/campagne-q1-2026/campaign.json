@@ -1,0 +1,43 @@
+{
+  "schema_version": "2.0",
+  "campaign_id": "campagne-q1-2026",
+  "category_id": "articles-techniques",
+  "name": "Campagne Q1 2026",
+  "description": "34 articles techniques pour Q1 2026",
+  "status": "draft",
+  "created_at": "2025-12-12T20:00:00Z",
+  "updated_at": "2025-12-12T20:00:00Z",
+  "articles": [
+    {
+      "article_id": "article-1-example",
+      "order": 1,
+      "status": "draft",
+      "content_file": "articles/article-1-example/content.md",
+      "templates": {
+        "linkedin": {
+          "article": "articles/article-1-example/templates/linkedin-article.md",
+          "carousel": "articles/article-1-example/templates/linkedin-carousel.md"
+        },
+        "instagram": {
+          "post": "articles/article-1-example/templates/instagram-post.md"
+        },
+        "twitter": {
+          "thread": "articles/article-1-example/templates/twitter-thread.md"
+        }
+      }
+    }
+  ],
+  "kpis": {
+    "target": {
+      "total_articles": 34,
+      "total_deployments": 136,
+      "linkedin_impressions": 17000
+    },
+    "actual": {
+      "total_articles": 1,
+      "total_deployments": 0,
+      "linkedin_impressions": 0
+    }
+  }
+}
+

@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "campaign_id": "2025-12-article-1-gain-temps-candidature",
+  "slug": "article-1-gain-temps-candidature-93pct",
+  "created_at": "2025-12-12T20:00:00Z",
+  "updated_at": "2025-12-12T20:00:00Z",
+  "owner": "Lucas Tymen",
+  "status": "draft",
+  "objective": "Partager le ROI mesuré de l'automatisation de recherche d'emploi (93% gain temps, 24x ROI)",
+  "message_key": "L'automatisation intelligente transforme la recherche d'emploi : 30 min → 2 min par candidature",
+  "narrative_arc": {
+    "episode": 1,
+    "series": "Articles LinkedIn One-Page - ROI & Performance",
+    "summary": "Retour d'expérience factuel sur l'automatisation de recherche d'emploi avec métriques réelles",
+    "next_episode": "article-2-enrichissement-100pct"
+  },
+  "platforms": ["linkedin"],
+  "kpis": {
+    "target": {
+      "linkedin_impressions": 500,
+      "linkedin_engagement": 30,
+      "cta_clicks": 15
+    },
+    "actual": {
+      "linkedin_impressions": 0,
+      "linkedin_engagement": 0,
+      "cta_clicks": 0
+    },
+    "source": "manual"
+  },
+  "content": {
+    "summary": "Article one-page partageant le ROI mesuré de l'automatisation de recherche d'emploi : 93% gain temps candidature, 97% gain recherche contacts, ROI 24x. Retour d'expérience factuel avec métriques réelles.",
+    "angle": "data-driven",
+    "hashtags": ["#Recrutement", "#Automatisation", "#Python", "#Productivity", "#JobSearch", "#SquidResearch"],
+    "cta": "Question : Combien de temps passez-vous par candidature ? Partagez vos expériences en commentaire.",
+    "assets": {
+      "original": "articles/article-1-gain-temps-candidature-93pct/assets/original/",
+      "sanitized": "articles/article-1-gain-temps-candidature-93pct/assets/sanitized/"
+    }
+  },
+  "posts": [
+    {
+      "post_id": "linkedin-01",
+      "platform": "linkedin",
+      "format": "article",
+      "status": "draft",
+      "template": "templates/linkedin/article-one-page.md",
+      "scheduled_date": null,
+      "file": "linkedin/post-01-gain-temps.md",
+      "analytics": {
+        "impressions": 0,
+        "engagement": {
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      }
+    }
+  ],
+  "security_checklist": {
+    "no_ip_visible": true,
+    "credentials_masked": true,
+    "no_tokens": true,
+    "client_data_anonymized": true,
+    "internal_urls_masked": true,
+    "env_vars_hidden": true,
+    "validation_script_run": false,
+    "validated_by": "",
+    "validated_at": ""
+  },
+  "sync": {
+    "source_repo": "squidResearch",
+    "last_pulled": null,
+    "last_pushed": null,
+    "lock": false
+  },
+  "notes": [
+    "Article basé sur données réelles du projet SquidResearch",
+    "Métriques mesurées sur 6 mois d'utilisation personnelle",
+    "Format one-page pour éviter carrousels chronophages",
+    "Ton factuel, pas marketing, expérience personnelle"
+  ]
+}
+

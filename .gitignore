@@ -118,3 +118,8 @@ $RECYCLE.BIN/
 tmp/
 temp/
 scratch/
+
+# ==========================================
+# Dossier de travail marketing/growth (secret)
+# ==========================================
+growth/
