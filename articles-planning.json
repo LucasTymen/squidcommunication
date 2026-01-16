@@ -1,0 +1,581 @@
+{
+  "schema_version": "2.0",
+  "metadata": {
+    "created_at": "2026-01-05T14:00:00Z",
+    "last_updated": "2026-01-05T14:00:00Z",
+    "publishing_strategy": {
+      "frequency_per_day": 4,
+      "publication_time": "14:00",
+      "days": ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday"],
+      "excluded_days": ["sunday"],
+      "format_priority": "post/article",
+      "carousel_ratio": 0.1,
+      "automation": {
+        "primary": "yadulink",
+        "canva_only_for_carousel": true
+      }
+    },
+    "statistics": {
+      "total_articles": 85,
+      "published": 1,
+      "ready": 7,
+      "planned": 77,
+      "draft": 0
+    }
+  },
+  "planning": [
+    {
+      "week": 1,
+      "start_date": "2026-01-06",
+      "articles": [
+        {
+          "id": "article-1",
+          "slug": "article-1-gain-temps-candidature-93pct",
+          "title": "Gain de temps candidature : 93%",
+          "category": "Business/ROI",
+          "priority": "high",
+          "status": "published",
+          "format": "post",
+          "publish_date": "2025-12-XX",
+          "done": true,
+          "content_file": "articles/article-1-gain-temps-candidature-93pct/platforms/linkedin/post-01.md",
+          "notes": "Déjà publié"
+        },
+        {
+          "id": "article-3",
+          "slug": "article-3-algorithmes-matching-intelligents",
+          "title": "Algorithmes matching intelligents",
+          "category": "Technique/Algo",
+          "priority": "high",
+          "status": "ready",
+          "format": "article",
+          "planning": {
+            "start_date": "2026-01-06",
+            "publish_date": "2026-01-06",
+            "publish_time": "14:00"
+          },
+          "done": false,
+          "content_file": "articles/article-3-algorithmes-matching-intelligents/platforms/linkedin/post-01.md",
+          "full_content": "À rédiger depuis structure existante",
+          "seo": {
+            "primary_keywords": ["algorithme", "matching", "scoring", "IA", "recrutement"],
+            "long_tail_keywords": [
+              "algorithme matching CV offres",
+              "scoring candidatures automatique",
+              "matching IA recrutement"
+            ],
+            "hashtags": ["#SquidResearch", "#IA", "#Python", "#Algorithme", "#Matching"],
+            "meta_title": "Algorithmes matching intelligents | SquidResearch",
+            "meta_description": "Comment j'ai automatisé la compatibilité CV/offres avec un scoring mathématique transparent (0-100). Algorithme de matching multi-critères avec pondération intelligente.",
+            "slug": "article-3-algorithmes-matching-intelligents",
+            "tags": ["algorithme", "matching", "IA", "scoring", "recrutement"]
+          },
+          "comments": {
+            "monitored": true,
+            "auto_response_enabled": true,
+            "responses": []
+          }
+        },
+        {
+          "id": "article-4",
+          "slug": "article-4-import-csv-intelligent",
+          "title": "Import CSV intelligent",
+          "category": "Technique/UX",
+          "priority": "medium",
+          "status": "ready",
+          "format": "post",
+          "planning": {
+            "start_date": "2026-01-06",
+            "publish_date": "2026-01-06",
+            "publish_time": "14:00"
+          },
+          "done": false,
+          "content_file": "articles/article-4-import-csv-intelligent/platforms/linkedin/post-01.md"
+        },
+        {
+          "id": "article-5",
+          "slug": "article-5-15-job-boards-francais",
+          "title": "15 job boards français",
+          "category": "Business/Data",
+          "priority": "medium",
+          "status": "ready",
+          "format": "post",
+          "planning": {
+            "start_date": "2026-01-06",
+            "publish_date": "2026-01-06",
+            "publish_time": "14:00"
+          },
+          "done": false,
+          "content_file": "articles/article-5-15-job-boards-francais/platforms/linkedin/post-01.md"
+        },
+        {
+          "id": "article-10",
+          "slug": "article-10-100pct-taux-reussite-enrichissement",
+          "title": "100% taux réussite enrichissement",
+          "category": "Business/ROI",
+          "priority": "high",
+          "status": "draft",
+          "format": "article",
+          "planning": {
+            "start_date": "2026-01-07",
+            "publish_date": "2026-01-07",
+            "publish_time": "14:00"
+          },
+          "done": false,
+          "full_content": "À rédiger",
+          "data_points": [
+            "EmailEnrichedFinder 100% taux réussite",
+            "6-7 emails trouvés/recherche",
+            "82s moyen enrichissement"
+          ],
+          "seo": {
+            "primary_keywords": ["enrichissement", "contacts", "B2B", "prospection", "automatisation"],
+            "long_tail_keywords": [
+              "enrichissement contacts automatique",
+              "100% taux réussite enrichissement",
+              "prospection B2B automatique"
+            ],
+            "hashtags": ["#SquidResearch", "#IA", "#B2B", "#Productivité", "#ROI"],
+            "meta_title": "100% taux réussite enrichissement contacts B2B | SquidResearch",
+            "meta_description": "EmailEnrichedFinder : 100% taux réussite, 6-7 emails trouvés/recherche, 82s moyen enrichissement. Automatisez prospection B2B avec SquidResearch.",
+            "slug": "article-10-100pct-taux-reussite-enrichissement",
+            "tags": ["enrichissement", "B2B", "prospection", "automatisation", "ROI"]
+          },
+          "comments": {
+            "monitored": true,
+            "auto_response_enabled": true,
+            "responses": []
+          }
+        },
+        {
+          "id": "article-14",
+          "slug": "article-14-architecture-3-piliers-modulaires",
+          "title": "Architecture 3 Piliers Modulaires (140M utilisateurs)",
+          "category": "Business/Vision",
+          "priority": "high",
+          "status": "draft",
+          "format": "article",
+          "planning": {
+            "start_date": "2026-01-08",
+            "publish_date": "2026-01-08",
+            "publish_time": "14:00"
+          },
+          "done": false,
+          "full_content": "À rédiger",
+          "data_points": [
+            "3 modules indépendants",
+            "140M utilisateurs potentiels",
+            "Pricing modulaire"
+          ]
+        },
+        {
+          "id": "article-15",
+          "slug": "article-15-roi-24-36x-mesure",
+          "title": "ROI 24-36x mesuré",
+          "category": "Business/ROI",
+          "priority": "high",
+          "status": "draft",
+          "format": "article",
+          "planning": {
+            "start_date": "2026-01-09",
+            "publish_date": "2026-01-09",
+            "publish_time": "14:00"
+          },
+          "done": false,
+          "full_content": "À rédiger",
+          "data_points": [
+            "93% gain temps",
+            "450-690€/mois économisés"
+          ]
+        },
+        {
+          "id": "article-11",
+          "slug": "article-11-scoring-matching-cv-offres",
+          "title": "Scoring matching CV/offres (0-100)",
+          "category": "Technique/Algo",
+          "priority": "high",
+          "status": "draft",
+          "format": "post",
+          "planning": {
+            "start_date": "2026-01-10",
+            "publish_date": "2026-01-10",
+            "publish_time": "14:00"
+          },
+          "done": false,
+          "full_content": "À rédiger"
+        },
+        {
+          "id": "article-12",
+          "slug": "article-12-bulk-operations-20-entreprises-42s",
+          "title": "Bulk operations : 20 entreprises en 42s",
+          "category": "Technique/Performance",
+          "priority": "medium",
+          "status": "draft",
+          "format": "post",
+          "planning": {
+            "start_date": "2026-01-11",
+            "publish_date": "2026-01-11",
+            "publish_time": "14:00"
+          },
+          "done": false,
+          "full_content": "À rédiger"
+        },
+        {
+          "id": "article-6",
+          "slug": "article-6-enrichissement-multi-sources-tor",
+          "title": "Enrichissement multi-sources Tor",
+          "category": "Technique/Sécurité",
+          "priority": "medium",
+          "status": "ready",
+          "format": "post",
+          "planning": {
+            "start_date": "2026-01-13",
+            "publish_date": "2026-01-13",
+            "publish_time": "14:00"
+          },
+          "done": false,
+          "content_file": "articles/article-6-enrichissement-multi-sources-tor/platforms/linkedin/post-01.md"
+        },
+        {
+          "id": "article-7",
+          "slug": "article-7-securisation-complete",
+          "title": "Sécurisation complète",
+          "category": "Technique/Sécurité",
+          "priority": "medium",
+          "status": "ready",
+          "format": "post",
+          "planning": {
+            "start_date": "2026-01-13",
+            "publish_date": "2026-01-13",
+            "publish_time": "14:00"
+          },
+          "done": false,
+          "content_file": "articles/article-7-securisation-complete/platforms/linkedin/post-01.md"
+        },
+        {
+          "id": "article-23",
+          "slug": "article-23-module-ia-documents",
+          "title": "Module IA Documents : Analyse CV + Scoring ATS",
+          "category": "IA/Automatisation",
+          "priority": "high",
+          "status": "draft",
+          "format": "article",
+          "planning": {
+            "start_date": "2026-01-14",
+            "publish_date": "2026-01-14",
+            "publish_time": "14:00"
+          },
+          "done": false,
+          "full_content": "À rédiger",
+          "data_points": [
+            "94.23% coverage",
+            "58 tests",
+            "2,500 lignes de code"
+          ]
+        },
+        {
+          "id": "article-8",
+          "slug": "article-8-ux-gamification",
+          "title": "UX Gamification",
+          "category": "UX/Design",
+          "priority": "low",
+          "status": "ready",
+          "format": "post",
+          "planning": {
+            "start_date": "2026-01-15",
+            "publish_date": "2026-01-15",
+            "publish_time": "14:00"
+          },
+          "done": false,
+          "content_file": "articles/article-8-ux-gamification/platforms/linkedin/post-01.md"
+        },
+        {
+          "id": "article-9",
+          "slug": "article-9-google-oauth-crud-complet",
+          "title": "Google OAuth CRUD complet",
+          "category": "Technique/Auth",
+          "priority": "low",
+          "status": "ready",
+          "format": "post",
+          "planning": {
+            "start_date": "2026-01-15",
+            "publish_date": "2026-01-15",
+            "publish_time": "14:00"
+          },
+          "done": false,
+          "content_file": "articles/article-9-google-oauth-crud-complet/platforms/linkedin/post-01.md"
+        },
+        {
+          "id": "article-13",
+          "slug": "article-13-protection-ip-tor-integree",
+          "title": "Protection IP Tor intégrée",
+          "category": "Technique/Sécurité",
+          "priority": "medium",
+          "status": "draft",
+          "format": "post",
+          "planning": {
+            "start_date": "2026-01-16",
+            "publish_date": "2026-01-16",
+            "publish_time": "14:00"
+          },
+          "done": false,
+          "full_content": "À rédiger"
+        },
+        {
+          "id": "article-16",
+          "slug": "article-16-multi-canal-relances-automatisees",
+          "title": "Multi-canal relances automatisées",
+          "category": "Business/Automatisation",
+          "priority": "medium",
+          "status": "draft",
+          "format": "post",
+          "planning": {
+            "start_date": "2026-01-17",
+            "publish_date": "2026-01-17",
+            "publish_time": "14:00"
+          },
+          "done": false,
+          "full_content": "À rédiger"
+        },
+        {
+          "id": "article-17",
+          "slug": "article-17-conformite-rgpd-complete",
+          "title": "Conformité RGPD complète",
+          "category": "Sécurité/Conformité",
+          "priority": "medium",
+          "status": "draft",
+          "format": "post",
+          "planning": {
+            "start_date": "2026-01-20",
+            "publish_date": "2026-01-20",
+            "publish_time": "14:00"
+          },
+          "done": false,
+          "full_content": "À rédiger"
+        },
+        {
+          "id": "article-18",
+          "slug": "article-18-marque-inpi-e-soleau",
+          "title": "Marque INPI + e-Soleau",
+          "category": "Business/IP",
+          "priority": "medium",
+          "status": "draft",
+          "format": "post",
+          "planning": {
+            "start_date": "2026-01-20",
+            "publish_date": "2026-01-20",
+            "publish_time": "14:00"
+          },
+          "done": false,
+          "full_content": "À rédiger"
+        },
+        {
+          "id": "article-19",
+          "slug": "article-19-architecture-50k-lignes-6-mois",
+          "title": "Architecture 50K+ lignes, 6 mois développement",
+          "category": "Technique/Stack",
+          "priority": "medium",
+          "status": "draft",
+          "format": "article",
+          "planning": {
+            "start_date": "2026-01-21",
+            "publish_date": "2026-01-21",
+            "publish_time": "14:00"
+          },
+          "done": false,
+          "full_content": "À rédiger"
+        },
+        {
+          "id": "article-25",
+          "slug": "article-25-prospectorchestrator-algorithme-mathematique",
+          "title": "ProspectOrchestrator : Algorithme mathématique",
+          "category": "IA/Automatisation",
+          "priority": "high",
+          "status": "draft",
+          "format": "article",
+          "planning": {
+            "start_date": "2026-01-22",
+            "publish_date": "2026-01-22",
+            "publish_time": "14:00"
+          },
+          "done": false,
+          "full_content": "À rédiger"
+        },
+        {
+          "id": "article-31",
+          "slug": "article-31-social-campaign-engine-8-plateformes",
+          "title": "Social Campaign Engine : 8 plateformes unifiées",
+          "category": "Broadcasting/Social",
+          "priority": "high",
+          "status": "draft",
+          "format": "article",
+          "planning": {
+            "start_date": "2026-01-23",
+            "publish_date": "2026-01-23",
+            "publish_time": "14:00"
+          },
+          "done": false,
+          "full_content": "À rédiger"
+        },
+        {
+          "id": "article-41",
+          "slug": "article-41-python-311-django-52-stack",
+          "title": "Python 3.11 + Django 5.2 stack",
+          "category": "Technique/Python",
+          "priority": "high",
+          "status": "draft",
+          "format": "article",
+          "planning": {
+            "start_date": "2026-01-24",
+            "publish_date": "2026-01-24",
+            "publish_time": "14:00"
+          },
+          "done": false,
+          "full_content": "À rédiger"
+        },
+        {
+          "id": "article-53",
+          "slug": "article-53-docker-compose-multi-services",
+          "title": "Docker Compose multi-services : 9+ services",
+          "category": "Technique/Docker",
+          "priority": "high",
+          "status": "draft",
+          "format": "article",
+          "planning": {
+            "start_date": "2026-01-27",
+            "publish_date": "2026-01-27",
+            "publish_time": "14:00"
+          },
+          "done": false,
+          "full_content": "À rédiger"
+        },
+        {
+          "id": "article-43",
+          "slug": "article-43-drf-architecture-scalable-83-endpoints",
+          "title": "DRF architecture scalable : 83 endpoints",
+          "category": "Technique/Django",
+          "priority": "high",
+          "status": "draft",
+          "format": "post",
+          "planning": {
+            "start_date": "2026-01-27",
+            "publish_date": "2026-01-27",
+            "publish_time": "14:00"
+          },
+          "done": false,
+          "full_content": "À rédiger"
+        },
+        {
+          "id": "article-44",
+          "slug": "article-44-celery-redis-orchestration-asynchrones",
+          "title": "Celery + Redis : Orchestration asynchrones",
+          "category": "Technique/Python",
+          "priority": "high",
+          "status": "draft",
+          "format": "article",
+          "planning": {
+            "start_date": "2026-01-28",
+            "publish_date": "2026-01-28",
+            "publish_time": "14:00"
+          },
+          "done": false,
+          "full_content": "À rédiger"
+        },
+        {
+          "id": "article-32",
+          "slug": "article-32-oauth-comptes-sociaux-connexion-unifiee",
+          "title": "OAuth comptes sociaux : Connexion unifiée",
+          "category": "Broadcasting/Integration",
+          "priority": "medium",
+          "status": "draft",
+          "format": "post",
+          "planning": {
+            "start_date": "2026-01-29",
+            "publish_date": "2026-01-29",
+            "publish_time": "14:00"
+          },
+          "done": false,
+          "full_content": "À rédiger"
+        },
+        {
+          "id": "article-74",
+          "slug": "article-74-schema-org-faqpage-referencement-ia",
+          "title": "Schema.org FAQPage : Référencement IA",
+          "category": "SEO/Référencement",
+          "priority": "medium",
+          "status": "draft",
+          "format": "post",
+          "planning": {
+            "start_date": "2026-01-30",
+            "publish_date": "2026-01-30",
+            "publish_time": "14:00"
+          },
+          "done": false,
+          "full_content": "À rédiger"
+        },
+        {
+          "id": "article-51",
+          "slug": "article-51-module-monitoring-production",
+          "title": "Module Monitoring Production",
+          "category": "Technique/DevOps",
+          "priority": "medium",
+          "status": "draft",
+          "format": "post",
+          "planning": {
+            "start_date": "2026-01-31",
+            "publish_date": "2026-01-31",
+            "publish_time": "14:00"
+          },
+          "done": false,
+          "full_content": "À rédiger"
+        }
+      ]
+    }
+  ],
+  "automation": {
+    "yadulink": {
+      "enabled": true,
+      "scheduled_publications": [],
+      "notes": "Outil principal pour planification et publication automatique"
+    },
+    "canva": {
+      "enabled": true,
+      "only_for_carousel": true,
+      "templates": [],
+      "notes": "Uniquement pour carrousels, pas pour posts/articles"
+    },
+    "response_agent": {
+      "enabled": true,
+      "type": "n8n_flowise",
+      "config": {
+        "workflow": "linkedin-response-agent",
+        "flowise_endpoint": "http://flowise:3001/api/v1/prediction/...",
+        "auto_approve_threshold": 0.9,
+        "notification_method": "email",
+        "notification_email": "lucas.tymen@gmail.com"
+      },
+      "notes": "Agent LLM pour générer réponses automatiques (draft pour validation). Voir docs/AGENT_REPONSES_LINKEDIN.md"
+    },
+    "manus": {
+      "enabled": false,
+      "use_case": "Génération/révision contenu si nécessaire"
+    },
+    "greenspark": {
+      "enabled": false,
+      "use_case": "Engagement/réponses (optionnel)"
+    },
+    "relevance": {
+      "enabled": false,
+      "use_case": "Recommandations timing/hashtags (optionnel)"
+    }
+  },
+  "notes": [
+    "Publication unique à 14h chaque jour (sauf dimanche)",
+    "Format prioritaire : post/article (brut, pas de Canva)",
+    "Carrousels uniquement si nécessaire (avec Canva)",
+    "Ratio carrousels : ~10% du total (1 carrousel tous les 10 articles)",
+    "Tous les contenus doivent être validés avant publication",
+    "Mise à jour statut 'done' après publication effective"
+  ]
+}
+

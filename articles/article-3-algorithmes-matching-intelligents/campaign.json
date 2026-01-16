@@ -1,0 +1,158 @@
+{
+  "schema_version": "1.0",
+  "campaign_id": "2025-01-article-3-algorithmes-matching-intelligents",
+  "slug": "article-3-algorithmes-matching-intelligents",
+  "created_at": "2026-01-05T09:18:45.127237Z",
+  "updated_at": "2026-01-05T09:30:02.459031Z",
+  "owner": "Lucas Tymen",
+  "status": "draft",
+  "objective": "Partager algorithmes matching intelligents : Comment j'ai automatisé la compatibilité CV/offres avec un scoring mathématique transparent (0-100)....",
+  "message_key": "Algorithmes matching intelligents - Retour d'expérience SquidResearch",
+  "narrative_arc": {
+    "episode": 3,
+    "series": "Articles LinkedIn One-Page - SquidResearch",
+    "summary": "Comment j'ai automatisé la compatibilité CV/offres avec un scoring mathématique transparent (0-100). Algorithme de matching multi-critères avec pondération intelligente.",
+    "next_episode": "article-4-..."
+  },
+  "platforms": [
+    "linkedin",
+    "facebook",
+    "threads",
+    "instagram"
+  ],
+  "kpis": {
+    "target": {
+      "linkedin_impressions": 500,
+      "linkedin_engagement": 30,
+      "cta_clicks": 15
+    },
+    "actual": {
+      "linkedin_impressions": 0,
+      "linkedin_engagement": 0,
+      "cta_clicks": 0
+    },
+    "source": "manual"
+  },
+  "content": {
+    "title": "Algorithmes matching intelligents",
+    "summary": "Comment j'ai automatisé la compatibilité CV/offres avec un scoring mathématique transparent (0-100). Algorithme de matching multi-critères avec pondération intelligente.",
+    "angle": "data-driven",
+    "hashtags": [
+      "#Matching",
+      "#Algorithme",
+      "#Scoring",
+      "#Ia",
+      "#Recrutement",
+      "#SquidResearch"
+    ],
+    "cta": "Découvrez algorithmes matching intelligents sur SquidResearch. Partagez vos expériences en commentaire.",
+    "assets": {
+      "original": "articles/article-3-algorithmes-matching-intelligents/assets/original/",
+      "sanitized": "articles/article-3-algorithmes-matching-intelligents/assets/sanitized/"
+    }
+  },
+  "seo": {
+    "meta_title": "Algorithmes matching intelligents | SquidResearch",
+    "meta_description": "Comment j'ai automatisé la compatibilité CV/offres avec un scoring mathématique transparent (0-100). Algorithme de matching multi-critères avec pondération",
+    "keywords": [
+      "matching",
+      "algorithme",
+      "scoring",
+      "IA",
+      "recrutement"
+    ],
+    "slug": "article-3-algorithmes-matching-intelligents",
+    "canonical": "https://communication.squidresearch.com/articles/article-3-algorithmes-matching-intelligents",
+    "schema_type": "Article",
+    "og_image": "https://communication.squidresearch.com/og-article-3.png",
+    "og_type": "article",
+    "twitter_card": "summary_large_image",
+    "lang": "fr",
+    "alternate_langs": []
+  },
+  "posts": [
+    {
+      "post_id": "linkedin-01",
+      "platform": "linkedin",
+      "format": "post",
+      "status": "draft",
+      "file": "platforms/linkedin/post-01.md",
+      "analytics": {
+        "impressions": 0,
+        "engagement": {
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      }
+    },
+    {
+      "post_id": "facebook-01",
+      "platform": "facebook",
+      "format": "post",
+      "status": "draft",
+      "file": "platforms/facebook/post-01.md",
+      "analytics": {
+        "impressions": 0,
+        "engagement": {
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      }
+    },
+    {
+      "post_id": "threads-01",
+      "platform": "threads",
+      "format": "post",
+      "status": "draft",
+      "file": "platforms/threads/post-01.md",
+      "analytics": {
+        "impressions": 0,
+        "engagement": {
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      }
+    },
+    {
+      "post_id": "instagram-01",
+      "platform": "instagram",
+      "format": "post",
+      "status": "draft",
+      "file": "platforms/instagram/post-01.md",
+      "analytics": {
+        "impressions": 0,
+        "engagement": {
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      }
+    }
+  ],
+  "security_checklist": {
+    "no_ip_visible": false,
+    "credentials_masked": false,
+    "no_tokens": false,
+    "client_data_anonymized": false,
+    "internal_urls_masked": false,
+    "env_vars_hidden": false,
+    "validation_script_run": false,
+    "validated_by": "",
+    "validated_at": ""
+  },
+  "sync": {
+    "source_repo": "squidResearch",
+    "last_pulled": null,
+    "last_pushed": null,
+    "lock": false
+  },
+  "notes": [
+    "Article 3 de la série SquidResearch",
+    "Catégorie : Technique/Algo",
+    "Format one-page pour éviter carrousels chronophages",
+    "Ton factuel, pas marketing, expérience personnelle"
+  ]
+}

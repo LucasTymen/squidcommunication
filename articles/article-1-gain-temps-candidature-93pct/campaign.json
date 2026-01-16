@@ -38,6 +38,19 @@
       "sanitized": "articles/article-1-gain-temps-candidature-93pct/assets/sanitized/"
     }
   },
+  "seo": {
+    "meta_title": "Gain de temps candidature : 93% avec l'automatisation | SquidResearch",
+    "meta_description": "Comment réduire le temps de candidature de 30 min à 2 min (93% de gain) grâce à l'automatisation intelligente. ROI 24x, retour d'expérience développeur Python avec métriques réelles.",
+    "keywords": ["automatisation candidature", "gain temps recherche emploi", "ROI recrutement", "Python job search", "enrichissement contacts B2B"],
+    "slug": "article-1-gain-temps-candidature-93pct",
+    "canonical": "https://communication.squidresearch.com/articles/article-1-gain-temps-candidature-93pct",
+    "schema_type": "Article",
+    "og_image": "https://communication.squidresearch.com/og-article-1.png",
+    "og_type": "article",
+    "twitter_card": "summary_large_image",
+    "lang": "fr",
+    "alternate_langs": []
+  },
   "posts": [
     {
       "post_id": "linkedin-01",

@@ -57,6 +57,19 @@
       "sanitized": "campaigns/<slug>/assets/sanitized/"
     }
   },
+  "seo": {
+    "meta_title": "",
+    "meta_description": "",
+    "keywords": [],
+    "slug": "",
+    "canonical": "",
+    "schema_type": "Article | BlogPosting | WebPage",
+    "og_image": "",
+    "og_type": "article | website",
+    "twitter_card": "summary_large_image | summary",
+    "lang": "fr",
+    "alternate_langs": []
+  },
   "posts": [
     {
       "post_id": "linkedin-01",
@@ -119,9 +132,10 @@
 ## Roadmap data-driven
 
 1. **v1.0** : structure actuelle (`campaign.json` + templates Markdown)
-2. **v1.1** : ajout d’un catalogue d’épisodes/storytelling (`narrative_arc`)
+2. **v1.1** : ajout d'un catalogue d'épisodes/storytelling (`narrative_arc`)
 3. **v1.2** : intégration API LinkedIn/Instagram pour remplir `kpis.actual`
-4. **v2.0** : tableau de bord consolidé (`docs/reports/dashboard.json`)
+4. **v1.3** : ajout section SEO/GEO (`seo` object avec metadata, schema.org, hreflang)
+5. **v2.0** : tableau de bord consolidé (`docs/reports/dashboard.json`)
 
 ---
 

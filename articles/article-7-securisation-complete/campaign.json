@@ -1,0 +1,158 @@
+{
+  "schema_version": "1.0",
+  "campaign_id": "2025-01-article-7-securisation-complete",
+  "slug": "article-7-securisation-complete",
+  "created_at": "2026-01-05T09:18:45.151440Z",
+  "updated_at": "2026-01-05T09:30:22.750113Z",
+  "owner": "Lucas Tymen",
+  "status": "draft",
+  "objective": "Partager sécurisation complète : Sécurisation complète d'un SaaS B2B : authentification, autorisation, protection données, logs audit...",
+  "message_key": "Sécurisation complète - Retour d'expérience SquidResearch",
+  "narrative_arc": {
+    "episode": 7,
+    "series": "Articles LinkedIn One-Page - SquidResearch",
+    "summary": "Sécurisation complète d'un SaaS B2B : authentification, autorisation, protection données, logs audit, conformité RGPD. Retour d'expérience sur les bonnes pratiques.",
+    "next_episode": "article-8-..."
+  },
+  "platforms": [
+    "linkedin",
+    "facebook",
+    "threads",
+    "instagram"
+  ],
+  "kpis": {
+    "target": {
+      "linkedin_impressions": 500,
+      "linkedin_engagement": 30,
+      "cta_clicks": 15
+    },
+    "actual": {
+      "linkedin_impressions": 0,
+      "linkedin_engagement": 0,
+      "cta_clicks": 0
+    },
+    "source": "manual"
+  },
+  "content": {
+    "title": "Sécurisation complète",
+    "summary": "Sécurisation complète d'un SaaS B2B : authentification, autorisation, protection données, logs audit, conformité RGPD. Retour d'expérience sur les bonnes pratiques.",
+    "angle": "data-driven",
+    "hashtags": [
+      "#Sécurité",
+      "#Rgpd",
+      "#Authentification",
+      "#Conformité",
+      "#Saas",
+      "#SquidResearch"
+    ],
+    "cta": "Découvrez sécurisation complète sur SquidResearch. Partagez vos expériences en commentaire.",
+    "assets": {
+      "original": "articles/article-7-securisation-complete/assets/original/",
+      "sanitized": "articles/article-7-securisation-complete/assets/sanitized/"
+    }
+  },
+  "seo": {
+    "meta_title": "Sécurisation complète | SquidResearch",
+    "meta_description": "Sécurisation complète d'un SaaS B2B : authentification, autorisation, protection données, logs audit, conformité RGPD. Retour d'expérience sur les bonnes p",
+    "keywords": [
+      "sécurité",
+      "RGPD",
+      "authentification",
+      "conformité",
+      "SaaS"
+    ],
+    "slug": "article-7-securisation-complete",
+    "canonical": "https://communication.squidresearch.com/articles/article-7-securisation-complete",
+    "schema_type": "Article",
+    "og_image": "https://communication.squidresearch.com/og-article-7.png",
+    "og_type": "article",
+    "twitter_card": "summary_large_image",
+    "lang": "fr",
+    "alternate_langs": []
+  },
+  "posts": [
+    {
+      "post_id": "linkedin-01",
+      "platform": "linkedin",
+      "format": "post",
+      "status": "draft",
+      "file": "platforms/linkedin/post-01.md",
+      "analytics": {
+        "impressions": 0,
+        "engagement": {
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      }
+    },
+    {
+      "post_id": "facebook-01",
+      "platform": "facebook",
+      "format": "post",
+      "status": "draft",
+      "file": "platforms/facebook/post-01.md",
+      "analytics": {
+        "impressions": 0,
+        "engagement": {
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      }
+    },
+    {
+      "post_id": "threads-01",
+      "platform": "threads",
+      "format": "post",
+      "status": "draft",
+      "file": "platforms/threads/post-01.md",
+      "analytics": {
+        "impressions": 0,
+        "engagement": {
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      }
+    },
+    {
+      "post_id": "instagram-01",
+      "platform": "instagram",
+      "format": "post",
+      "status": "draft",
+      "file": "platforms/instagram/post-01.md",
+      "analytics": {
+        "impressions": 0,
+        "engagement": {
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      }
+    }
+  ],
+  "security_checklist": {
+    "no_ip_visible": false,
+    "credentials_masked": false,
+    "no_tokens": false,
+    "client_data_anonymized": false,
+    "internal_urls_masked": false,
+    "env_vars_hidden": false,
+    "validation_script_run": false,
+    "validated_by": "",
+    "validated_at": ""
+  },
+  "sync": {
+    "source_repo": "squidResearch",
+    "last_pulled": null,
+    "last_pushed": null,
+    "lock": false
+  },
+  "notes": [
+    "Article 7 de la série SquidResearch",
+    "Catégorie : Technique/Sécurité",
+    "Format one-page pour éviter carrousels chronophages",
+    "Ton factuel, pas marketing, expérience personnelle"
+  ]
+}

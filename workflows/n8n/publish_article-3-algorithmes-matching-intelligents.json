@@ -1,0 +1,153 @@
+{
+  "name": "Publish article-3-algorithmes-matching-intelligents to linkedin, facebook",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "publish-article-3-algorithmes-matching-intelligents",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        250,
+        300
+      ],
+      "webhookId": "publish-article-3-algorithmes-matching-intelligents"
+    },
+    {
+      "parameters": {
+        "command": "cd /home/lucas/tools/squidCommunication && cat articles/article-3-algorithmes-matching-intelligents/platforms/{{ $json.platform }}/post-01.md"
+      },
+      "id": "read-post-content",
+      "name": "Read Post Content",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        450,
+        300
+      ]
+    },
+    {
+      "id": "post-linkedin",
+      "name": "Post to Linkedin",
+      "typeVersion": 1,
+      "position": [
+        650,
+        100
+      ],
+      "type": "n8n-nodes-base.linkedIn",
+      "parameters": {
+        "resource": "post",
+        "operation": "create",
+        "text": "={{ $json.post_text }}",
+        "additionalFields": {}
+      },
+      "credentials": {
+        "linkedInOAuth2Api": {
+          "id": "linkedin-credentials",
+          "name": "LinkedIn OAuth2 API"
+        }
+      }
+    },
+    {
+      "id": "post-facebook",
+      "name": "Post to Facebook",
+      "typeVersion": 1,
+      "position": [
+        650,
+        250
+      ],
+      "type": "n8n-nodes-base.facebook",
+      "parameters": {
+        "resource": "post",
+        "operation": "create",
+        "message": "={{ $json.post_text }}",
+        "additionalFields": {}
+      },
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "facebook-credentials",
+          "name": "Facebook Graph API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={ { \"success\": true, \"article_slug\": \"article-3-algorithmes-matching-intelligents\", \"platforms\": [\"linkedin\", \"facebook\"], \"published_at\": new Date().toISOString() } }"
+      },
+      "id": "webhook-response",
+      "name": "Webhook Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        850,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Webhook Trigger": {
+      "main": [
+        [
+          {
+            "node": "Read Post Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Post Content": {
+      "main": [
+        [
+          {
+            "node": "post-linkedin",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "post-facebook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Post to Linkedin": {
+      "main": [
+        [
+          {
+            "node": "Webhook Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Post to Facebook": {
+      "main": [
+        [
+          {
+            "node": "Webhook Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-05T10:46:57.978715Z",
+  "versionId": "1"
+}

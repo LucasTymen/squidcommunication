@@ -1,0 +1,158 @@
+{
+  "schema_version": "1.0",
+  "campaign_id": "2025-01-article-5-15-job-boards-francais",
+  "slug": "article-5-15-job-boards-francais",
+  "created_at": "2026-01-05T09:18:45.142829Z",
+  "updated_at": "2026-01-05T09:30:22.611308Z",
+  "owner": "Lucas Tymen",
+  "status": "draft",
+  "objective": "Partager 15 job boards français : Analyse comparative de 15 job boards français : fonctionnalités, tarifs, efficacité. Retour d'expéri...",
+  "message_key": "15 job boards français - Retour d'expérience SquidResearch",
+  "narrative_arc": {
+    "episode": 5,
+    "series": "Articles LinkedIn One-Page - SquidResearch",
+    "summary": "Analyse comparative de 15 job boards français : fonctionnalités, tarifs, efficacité. Retour d'expérience sur l'intégration multi-plateformes.",
+    "next_episode": "article-6-..."
+  },
+  "platforms": [
+    "linkedin",
+    "facebook",
+    "threads",
+    "instagram"
+  ],
+  "kpis": {
+    "target": {
+      "linkedin_impressions": 500,
+      "linkedin_engagement": 30,
+      "cta_clicks": 15
+    },
+    "actual": {
+      "linkedin_impressions": 0,
+      "linkedin_engagement": 0,
+      "cta_clicks": 0
+    },
+    "source": "manual"
+  },
+  "content": {
+    "title": "15 job boards français",
+    "summary": "Analyse comparative de 15 job boards français : fonctionnalités, tarifs, efficacité. Retour d'expérience sur l'intégration multi-plateformes.",
+    "angle": "data-driven",
+    "hashtags": [
+      "#Job boards",
+      "#Recrutement",
+      "#Analyse",
+      "#Comparatif",
+      "#France",
+      "#SquidResearch"
+    ],
+    "cta": "Découvrez 15 job boards français sur SquidResearch. Partagez vos expériences en commentaire.",
+    "assets": {
+      "original": "articles/article-5-15-job-boards-francais/assets/original/",
+      "sanitized": "articles/article-5-15-job-boards-francais/assets/sanitized/"
+    }
+  },
+  "seo": {
+    "meta_title": "15 job boards français | SquidResearch",
+    "meta_description": "Analyse comparative de 15 job boards français : fonctionnalités, tarifs, efficacité. Retour d'expérience sur l'intégration multi-plateformes.",
+    "keywords": [
+      "job boards",
+      "recrutement",
+      "analyse",
+      "comparatif",
+      "France"
+    ],
+    "slug": "article-5-15-job-boards-francais",
+    "canonical": "https://communication.squidresearch.com/articles/article-5-15-job-boards-francais",
+    "schema_type": "Article",
+    "og_image": "https://communication.squidresearch.com/og-article-5.png",
+    "og_type": "article",
+    "twitter_card": "summary_large_image",
+    "lang": "fr",
+    "alternate_langs": []
+  },
+  "posts": [
+    {
+      "post_id": "linkedin-01",
+      "platform": "linkedin",
+      "format": "post",
+      "status": "draft",
+      "file": "platforms/linkedin/post-01.md",
+      "analytics": {
+        "impressions": 0,
+        "engagement": {
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      }
+    },
+    {
+      "post_id": "facebook-01",
+      "platform": "facebook",
+      "format": "post",
+      "status": "draft",
+      "file": "platforms/facebook/post-01.md",
+      "analytics": {
+        "impressions": 0,
+        "engagement": {
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      }
+    },
+    {
+      "post_id": "threads-01",
+      "platform": "threads",
+      "format": "post",
+      "status": "draft",
+      "file": "platforms/threads/post-01.md",
+      "analytics": {
+        "impressions": 0,
+        "engagement": {
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      }
+    },
+    {
+      "post_id": "instagram-01",
+      "platform": "instagram",
+      "format": "post",
+      "status": "draft",
+      "file": "platforms/instagram/post-01.md",
+      "analytics": {
+        "impressions": 0,
+        "engagement": {
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      }
+    }
+  ],
+  "security_checklist": {
+    "no_ip_visible": false,
+    "credentials_masked": false,
+    "no_tokens": false,
+    "client_data_anonymized": false,
+    "internal_urls_masked": false,
+    "env_vars_hidden": false,
+    "validation_script_run": false,
+    "validated_by": "",
+    "validated_at": ""
+  },
+  "sync": {
+    "source_repo": "squidResearch",
+    "last_pulled": null,
+    "last_pushed": null,
+    "lock": false
+  },
+  "notes": [
+    "Article 5 de la série SquidResearch",
+    "Catégorie : Business/Data",
+    "Format one-page pour éviter carrousels chronophages",
+    "Ton factuel, pas marketing, expérience personnelle"
+  ]
+}

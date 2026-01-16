@@ -1,0 +1,158 @@
+{
+  "schema_version": "1.0",
+  "campaign_id": "2025-01-article-9-google-oauth-crud-complet",
+  "slug": "article-9-google-oauth-crud-complet",
+  "created_at": "2026-01-05T09:18:45.158419Z",
+  "updated_at": "2026-01-05T09:30:22.864879Z",
+  "owner": "Lucas Tymen",
+  "status": "draft",
+  "objective": "Partager google oauth crud complet : Intégration Google OAuth complète avec CRUD : authentification, gestion tokens, synchronisation donn...",
+  "message_key": "Google OAuth CRUD complet - Retour d'expérience SquidResearch",
+  "narrative_arc": {
+    "episode": 9,
+    "series": "Articles LinkedIn One-Page - SquidResearch",
+    "summary": "Intégration Google OAuth complète avec CRUD : authentification, gestion tokens, synchronisation données, gestion erreurs. Architecture scalable pour SaaS B2B.",
+    "next_episode": null
+  },
+  "platforms": [
+    "linkedin",
+    "facebook",
+    "threads",
+    "instagram"
+  ],
+  "kpis": {
+    "target": {
+      "linkedin_impressions": 500,
+      "linkedin_engagement": 30,
+      "cta_clicks": 15
+    },
+    "actual": {
+      "linkedin_impressions": 0,
+      "linkedin_engagement": 0,
+      "cta_clicks": 0
+    },
+    "source": "manual"
+  },
+  "content": {
+    "title": "Google OAuth CRUD complet",
+    "summary": "Intégration Google OAuth complète avec CRUD : authentification, gestion tokens, synchronisation données, gestion erreurs. Architecture scalable pour SaaS B2B.",
+    "angle": "data-driven",
+    "hashtags": [
+      "#Oauth",
+      "#Google",
+      "#Authentification",
+      "#Crud",
+      "#Api",
+      "#SquidResearch"
+    ],
+    "cta": "Découvrez google oauth crud complet sur SquidResearch. Partagez vos expériences en commentaire.",
+    "assets": {
+      "original": "articles/article-9-google-oauth-crud-complet/assets/original/",
+      "sanitized": "articles/article-9-google-oauth-crud-complet/assets/sanitized/"
+    }
+  },
+  "seo": {
+    "meta_title": "Google OAuth CRUD complet | SquidResearch",
+    "meta_description": "Intégration Google OAuth complète avec CRUD : authentification, gestion tokens, synchronisation données, gestion erreurs. Architecture scalable pour SaaS B",
+    "keywords": [
+      "OAuth",
+      "Google",
+      "authentification",
+      "CRUD",
+      "API"
+    ],
+    "slug": "article-9-google-oauth-crud-complet",
+    "canonical": "https://communication.squidresearch.com/articles/article-9-google-oauth-crud-complet",
+    "schema_type": "Article",
+    "og_image": "https://communication.squidresearch.com/og-article-9.png",
+    "og_type": "article",
+    "twitter_card": "summary_large_image",
+    "lang": "fr",
+    "alternate_langs": []
+  },
+  "posts": [
+    {
+      "post_id": "linkedin-01",
+      "platform": "linkedin",
+      "format": "post",
+      "status": "draft",
+      "file": "platforms/linkedin/post-01.md",
+      "analytics": {
+        "impressions": 0,
+        "engagement": {
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      }
+    },
+    {
+      "post_id": "facebook-01",
+      "platform": "facebook",
+      "format": "post",
+      "status": "draft",
+      "file": "platforms/facebook/post-01.md",
+      "analytics": {
+        "impressions": 0,
+        "engagement": {
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      }
+    },
+    {
+      "post_id": "threads-01",
+      "platform": "threads",
+      "format": "post",
+      "status": "draft",
+      "file": "platforms/threads/post-01.md",
+      "analytics": {
+        "impressions": 0,
+        "engagement": {
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      }
+    },
+    {
+      "post_id": "instagram-01",
+      "platform": "instagram",
+      "format": "post",
+      "status": "draft",
+      "file": "platforms/instagram/post-01.md",
+      "analytics": {
+        "impressions": 0,
+        "engagement": {
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      }
+    }
+  ],
+  "security_checklist": {
+    "no_ip_visible": false,
+    "credentials_masked": false,
+    "no_tokens": false,
+    "client_data_anonymized": false,
+    "internal_urls_masked": false,
+    "env_vars_hidden": false,
+    "validation_script_run": false,
+    "validated_by": "",
+    "validated_at": ""
+  },
+  "sync": {
+    "source_repo": "squidResearch",
+    "last_pulled": null,
+    "last_pushed": null,
+    "lock": false
+  },
+  "notes": [
+    "Article 9 de la série SquidResearch",
+    "Catégorie : Technique/Auth",
+    "Format one-page pour éviter carrousels chronophages",
+    "Ton factuel, pas marketing, expérience personnelle"
+  ]
+}

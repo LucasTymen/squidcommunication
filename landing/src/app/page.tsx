@@ -1,49 +1,6 @@
-import fs from "fs";
-import path from "path";
-
-interface CampaignJSON {
-  campaign_id: string;
-  objective?: string;
-  content?: { summary?: string; cta?: string };
-  kpis?: {
-    target?: Record<string, number>;
-    actual?: Record<string, number>;
-  };
-  posts?: Array<{
-    post_id: string;
-    platform: string;
-    scheduled_date?: string;
-    status?: string;
-    file?: string;
-  }>;
-}
-
-function loadLatestCampaign(): CampaignJSON | null {
-  const campaignsRoot = path.join(process.cwd(), "..", "campaigns");
-  if (!fs.existsSync(campaignsRoot)) {
-    return null;
-  }
-  const entries = fs
-    .readdirSync(campaignsRoot)
-    .filter((folder) => folder !== ".DS_Store")
-    .map((folder) => ({
-      folder,
-      stat: fs.statSync(path.join(campaignsRoot, folder)),
-    }))
-    .sort((a, b) => b.stat.mtime.getTime() - a.stat.mtime.getTime());
-
-  for (const { folder } of entries) {
-    const campaignPath = path.join(campaignsRoot, folder, "campaign.json");
-    if (!fs.existsSync(campaignPath)) continue;
-    try {
-      const raw = fs.readFileSync(campaignPath, "utf-8");
-      return JSON.parse(raw) as CampaignJSON;
-    } catch (error) {
-      console.error("Failed to parse", folder, error);
-    }
-  }
-  return null;
-}
+import { loadLatestCampaign } from "@/lib/campaigns";
+import type { CampaignJSON } from "@/lib/campaigns";
+import { generateSchemaOrg } from "@/lib/seo";
 
 function formatDate(iso?: string) {
   if (!iso) return "Non planifié";
@@ -61,6 +18,7 @@ function formatDate(iso?: string) {
 
 export default function Home() {
   const campaign = loadLatestCampaign();
+  const schemaOrg = generateSchemaOrg(campaign);
   const title = campaign?.campaign_id ?? "Communication SquidResearch";
   const objective =
     campaign?.objective ??
@@ -119,7 +77,12 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(132,94,247,0.28),_transparent_45%)] text-slate-100">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
+      />
+      <div className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(132,94,247,0.28),_transparent_45%)] text-slate-100">
       <main className="relative mx-auto flex min-h-screen w-full max-w-6xl flex-col gap-16 px-6 py-20 md:px-10">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(90,217,255,0.18),transparent_35%),radial-gradient(circle_at_80%_0%,rgba(132,94,247,0.22),transparent_30%),radial-gradient(circle_at_50%_80%,rgba(255,95,109,0.18),transparent_45%)]" />
 
@@ -254,6 +217,143 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="rounded-3xl border border-white/10 bg-gradient-to-br from-purple-500/20 via-indigo-500/20 to-cyan-500/20 p-10 backdrop-blur-xl shadow-[0_20px_60px_-20px_rgba(132,94,247,0.4)]">
+          <h2 className="text-3xl font-bold text-white mb-4">🏗️ Architecture 3 Piliers Modulaires</h2>
+          <p className="text-slate-200/80 mb-8 max-w-3xl">
+            SquidResearch repose sur 3 modules indépendants et modulables, chacun avec un enjeu stratégique unique. 
+            Choisissez le module qui correspond à vos besoins ou combinez-les pour une solution complète.
+          </p>
+          <div className="grid gap-8 md:grid-cols-3">
+            <div className="rounded-2xl border-2 border-emerald-500/30 bg-gradient-to-br from-emerald-500/20 via-teal-500/10 to-cyan-500/10 p-8 backdrop-blur-sm shadow-lg shadow-emerald-500/20">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="text-3xl">🔍</div>
+                <h3 className="text-xl font-bold text-white">Prospector</h3>
+              </div>
+              <p className="text-sm font-semibold text-emerald-300 mb-3">Intelligence & Enrichissement</p>
+              <p className="text-sm text-slate-200/90 mb-4">
+                Module d'enrichissement B2B universel : scraping multi-sources, recherche contacts RH, 
+                intelligence entreprise. Support infini de sites employeurs vs 8 job boards concurrents.
+              </p>
+              <div className="space-y-2 text-xs text-slate-300/80 mb-4">
+                <p>✅ Scraping universel (∞ sites)</p>
+                <p>✅ ENRICHED (extraction complète)</p>
+                <p>✅ Recherche contacts multi-sources</p>
+                <p>✅ Protection IP Tor intégrée</p>
+                <p>✅ 100% taux de réussite mesuré</p>
+              </div>
+              <div className="pt-4 border-t border-emerald-500/20">
+                <p className="text-xs font-semibold text-emerald-300 mb-2">Cas d'usage stratégiques</p>
+                <p className="text-xs text-slate-300/70">
+                  Freelances, recruteurs, marketers B2B, chercheurs d'emploi. 
+                  <strong className="text-white"> Différenciation clé</strong> : Support universel + Tor unique.
+                </p>
+              </div>
+            </div>
+
+            <div className="rounded-2xl border-2 border-blue-500/30 bg-gradient-to-br from-blue-500/20 via-indigo-500/10 to-purple-500/10 p-8 backdrop-blur-sm shadow-lg shadow-blue-500/20">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="text-3xl">🎯</div>
+                <h3 className="text-xl font-bold text-white">Applicator</h3>
+              </div>
+              <p className="text-sm font-semibold text-blue-300 mb-3">Automation Candidatures & Relances</p>
+              <p className="text-sm text-slate-200/90 mb-4">
+                Automatisation complète du processus de candidature : One-Click Application (2 min vs 30 min), 
+                matching IA CV/offres, relances multi-canal. Gain de temps mesuré : 93% par candidature.
+              </p>
+              <div className="space-y-2 text-xs text-slate-300/80 mb-4">
+                <p>✅ One-Click Application complet</p>
+                <p>✅ Matching IA (score 0-100)</p>
+                <p>✅ Relances multi-canal (Email/LinkedIn/Tel)</p>
+                <p>✅ BotFriendly (optimisation ATS)</p>
+                <p>✅ ROI 24-36x mesuré</p>
+              </div>
+              <div className="pt-4 border-t border-blue-500/20">
+                <p className="text-xs font-semibold text-blue-300 mb-2">Cas d'usage stratégiques</p>
+                <p className="text-xs text-slate-300/70">
+                  Chercheurs d'emploi, freelances, commerciaux. 
+                  <strong className="text-white"> Différenciation clé</strong> : Workflow complet vs outils fragmentés.
+                </p>
+              </div>
+            </div>
+
+            <div className="rounded-2xl border-2 border-purple-500/30 bg-gradient-to-br from-purple-500/20 via-pink-500/10 to-rose-500/10 p-8 backdrop-blur-sm shadow-lg shadow-purple-500/20">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="text-3xl">🎬</div>
+                <h3 className="text-xl font-bold text-white">Broadcaster</h3>
+              </div>
+              <p className="text-sm font-semibold text-purple-300 mb-3">Orchestration Campagnes Multi-Plateformes</p>
+              <p className="text-sm text-slate-200/90 mb-4">
+                Moteur de campagnes sociales avec génération IA intégrée. Orchestration 8+ plateformes, 
+                scénarios automatisés (teasing → lancement), A/B testing. Unique : génération IA + orchestration narrative.
+              </p>
+              <div className="space-y-2 text-xs text-slate-300/80 mb-4">
+                <p>✅ AI Content Factory intégrée</p>
+                <p>✅ 8+ plateformes (LinkedIn, Instagram, TikTok...)</p>
+                <p>✅ Scénarios automatisés</p>
+                <p>✅ A/B testing posts</p>
+                <p>✅ OAuth multi-utilisateurs (14 plateformes)</p>
+              </div>
+              <div className="pt-4 border-t border-purple-500/20">
+                <p className="text-xs font-semibold text-purple-300 mb-2">Cas d'usage stratégiques</p>
+                <p className="text-xs text-slate-300/70">
+                  Créateurs contenu, artistes, startups, marketers. 
+                  <strong className="text-white"> Différenciation clé</strong> : IA intégrée vs planification seule.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+            <p className="text-sm text-slate-200/90 text-center">
+              <strong className="text-white">Modularité stratégique</strong> : Chaque pilier peut fonctionner indépendamment ou être combiné 
+              pour créer des workflows puissants. Prospector → Applicator → Broadcaster : un écosystème complet.
+            </p>
+          </div>
+        </section>
+
+        <section className="rounded-3xl border border-white/10 bg-gradient-to-br from-emerald-500/20 via-teal-500/20 to-cyan-500/20 p-10 backdrop-blur-xl shadow-[0_20px_60px_-20px_rgba(16,185,129,0.3)]">
+          <h2 className="text-3xl font-bold text-white mb-6">📊 Statistiques Projet</h2>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <div className="rounded-2xl border border-white/10 bg-white/10 p-6 text-center backdrop-blur-sm">
+              <p className="text-4xl font-bold text-emerald-400 mb-2">50K+</p>
+              <p className="text-sm text-slate-200/80">Lignes de code</p>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-white/10 p-6 text-center backdrop-blur-sm">
+              <p className="text-4xl font-bold text-cyan-400 mb-2">83</p>
+              <p className="text-sm text-slate-200/80">Apps Django</p>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-white/10 p-6 text-center backdrop-blur-sm">
+              <p className="text-4xl font-bold text-purple-400 mb-2">70%</p>
+              <p className="text-sm text-slate-200/80">Coverage tests</p>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-white/10 p-6 text-center backdrop-blur-sm">
+              <p className="text-4xl font-bold text-indigo-400 mb-2">25</p>
+              <p className="text-sm text-slate-200/80">Sujets articles</p>
+            </div>
+          </div>
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            <div className="rounded-2xl border border-white/10 bg-white/10 p-6 backdrop-blur-sm">
+              <h3 className="text-lg font-semibold text-white mb-3">Stack Technique</h3>
+              <div className="text-sm text-slate-200/80 space-y-1">
+                <p>🐍 Python 3.11 + Django 5.2.5</p>
+                <p>⚛️ React + Next.js 16</p>
+                <p>🐳 Docker Compose (9+ services)</p>
+                <p>🔄 Celery + Redis + PostgreSQL</p>
+                <p>🤖 n8n + Flowise (orchestration IA)</p>
+              </div>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-white/10 p-6 backdrop-blur-sm">
+              <h3 className="text-lg font-semibold text-white mb-3">Performance Mesurée</h3>
+              <div className="text-sm text-slate-200/80 space-y-1">
+                <p>⚡ 93% gain temps candidature</p>
+                <p>📧 100% taux réussite enrichissement</p>
+                <p>🎯 24-36x ROI mesuré</p>
+                <p>⚙️ 42s bulk 10 entreprises</p>
+                <p>🔍 6-7 emails trouvés/recherche</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="rounded-3xl border border-white/10 bg-gradient-to-r from-indigo-500/40 via-sky-500/30 to-cyan-400/25 p-10 text-center shadow-[0_20px_80px_-30px_rgba(20,120,200,0.6)]">
           <h2 className="text-3xl font-bold text-white">Prêt à suivre les prochains épisodes ?</h2>
           <p className="mx-auto mt-4 max-w-2xl text-sm text-slate-50/80">
@@ -279,5 +379,7 @@ export default function Home() {
         </section>
       </main>
     </div>
+    </>
   );
 }
+

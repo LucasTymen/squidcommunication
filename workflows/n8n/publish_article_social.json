@@ -1,0 +1,388 @@
+{
+  "name": "Publish Article to Social Media",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "publish-article",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "webhookId": "publish-article-social"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Valider les paramètres d'entrée\nconst articleSlug = $input.item.json.article_slug;\nconst platform = $input.item.json.platform || 'linkedin';\n\nif (!articleSlug) {\n  throw new Error('article_slug est requis');\n}\n\nreturn {\n  json: {\n    article_slug: articleSlug,\n    platform: platform,\n    timestamp: new Date().toISOString()\n  }\n};"
+      },
+      "id": "validate-input",
+      "name": "Validate Input",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "command": "cd /home/lucas/tools/squidCommunication && cat articles/{{ $json.article_slug }}/platforms/{{ $json.platform }}/post-01.md"
+      },
+      "id": "read-post-content",
+      "name": "Read Post Content",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parser le contenu Markdown pour extraire le texte du post\nconst content = $input.item.json.stdout;\n\n// Extraire la section Contenu (entre ## Contenu et ---)\nconst contentMatch = content.match(/## Contenu\\n\\n([\\s\\S]*?)\\n\\n---/);\nconst postText = contentMatch ? contentMatch[1].trim() : content;\n\n// Extraire les hashtags si présents\nconst hashtagMatch = postText.match(/(#[\\w]+(?:\\s+#[\\w]+)*)/);\nconst hashtags = hashtagMatch ? hashtagMatch[1] : '';\n\nreturn {\n  json: {\n    ...$('Validate Input').item.json,\n    post_text: postText,\n    hashtags: hashtags,\n    raw_content: content\n  }\n};"
+      },
+      "id": "parse-content",
+      "name": "Parse Content",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.platform }}",
+              "operation": "equals",
+              "value2": "linkedin"
+            }
+          ]
+        }
+      },
+      "id": "check-platform-linkedin",
+      "name": "Check Platform: LinkedIn",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [1050, 200]
+    },
+    {
+      "parameters": {
+        "resource": "post",
+        "operation": "create",
+        "text": "={{ $json.post_text }}",
+        "additionalFields": {}
+      },
+      "id": "post-linkedin",
+      "name": "Post to LinkedIn",
+      "type": "n8n-nodes-base.linkedIn",
+      "typeVersion": 1,
+      "position": [1250, 100],
+      "credentials": {
+        "linkedInOAuth2Api": {
+          "id": "linkedin-credentials",
+          "name": "LinkedIn OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.platform }}",
+              "operation": "equals",
+              "value2": "facebook"
+            }
+          ]
+        }
+      },
+      "id": "check-platform-facebook",
+      "name": "Check Platform: Facebook",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [1050, 300]
+    },
+    {
+      "parameters": {
+        "resource": "post",
+        "operation": "create",
+        "message": "={{ $json.post_text }}",
+        "additionalFields": {}
+      },
+      "id": "post-facebook",
+      "name": "Post to Facebook",
+      "type": "n8n-nodes-base.facebook",
+      "typeVersion": 1,
+      "position": [1250, 300],
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "facebook-credentials",
+          "name": "Facebook Graph API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.platform }}",
+              "operation": "equals",
+              "value2": "threads"
+            }
+          ]
+        }
+      },
+      "id": "check-platform-threads",
+      "name": "Check Platform: Threads",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [1050, 400]
+    },
+    {
+      "parameters": {
+        "resource": "post",
+        "operation": "create",
+        "text": "={{ $json.post_text }}",
+        "additionalFields": {}
+      },
+      "id": "post-threads",
+      "name": "Post to Threads",
+      "type": "n8n-nodes-base.metaThreads",
+      "typeVersion": 1,
+      "position": [1250, 400],
+      "credentials": {
+        "metaThreadsOAuth2Api": {
+          "id": "threads-credentials",
+          "name": "Meta Threads OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.platform }}",
+              "operation": "equals",
+              "value2": "instagram"
+            }
+          ]
+        }
+      },
+      "id": "check-platform-instagram",
+      "name": "Check Platform: Instagram",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [1050, 500]
+    },
+    {
+      "parameters": {
+        "resource": "post",
+        "operation": "create",
+        "caption": "={{ $json.post_text }}",
+        "additionalFields": {}
+      },
+      "id": "post-instagram",
+      "name": "Post to Instagram",
+      "type": "n8n-nodes-base.instagram",
+      "typeVersion": 1,
+      "position": [1250, 500],
+      "credentials": {
+        "instagramBasicDisplayOAuth2Api": {
+          "id": "instagram-credentials",
+          "name": "Instagram Basic Display OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "command": "cd /home/lucas/tools/squidCommunication && python3 scripts/update_publication_log.py --action published --article {{ $json.article_slug }} --platform {{ $json.platform }} --date $(date +%Y-%m-%d)"
+      },
+      "id": "update-log",
+      "name": "Update Publication Log",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1450, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { \"success\": true, \"article_slug\": $json.article_slug, \"platform\": $json.platform, \"published_at\": new Date().toISOString() } }}"
+      },
+      "id": "webhook-response",
+      "name": "Webhook Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1650, 300]
+    }
+  ],
+  "connections": {
+    "Webhook Trigger": {
+      "main": [
+        [
+          {
+            "node": "Validate Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Input": {
+      "main": [
+        [
+          {
+            "node": "Read Post Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Post Content": {
+      "main": [
+        [
+          {
+            "node": "Parse Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Content": {
+      "main": [
+        [
+          {
+            "node": "Check Platform: LinkedIn",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Check Platform: Facebook",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Check Platform: Threads",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Check Platform: Instagram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Platform: LinkedIn": {
+      "main": [
+        [
+          {
+            "node": "Post to LinkedIn",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Platform: Facebook": {
+      "main": [
+        [
+          {
+            "node": "Post to Facebook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Platform: Threads": {
+      "main": [
+        [
+          {
+            "node": "Post to Threads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Platform: Instagram": {
+      "main": [
+        [
+          {
+            "node": "Post to Instagram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Post to LinkedIn": {
+      "main": [
+        [
+          {
+            "node": "Update Publication Log",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Post to Facebook": {
+      "main": [
+        [
+          {
+            "node": "Update Publication Log",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Post to Threads": {
+      "main": [
+        [
+          {
+            "node": "Update Publication Log",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Post to Instagram": {
+      "main": [
+        [
+          {
+            "node": "Update Publication Log",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Publication Log": {
+      "main": [
+        [
+          {
+            "node": "Webhook Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-05T10:00:00.000Z",
+  "versionId": "1"
+}
+

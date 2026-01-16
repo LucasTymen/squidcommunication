@@ -3,6 +3,7 @@
 | Script | Description | Mode | Status |
 |--------|-------------|------|--------|
 | `scripts/create_campaign.py` | Génère l'ossature d'une campagne (folders, `campaign.json`, brouillons Markdown) | CLI | ✅ En place |
+| `scripts/create_article.py` | Génère un nouvel article de blog avec structure complète (SEO, métadonnées, template) | CLI | ✅ En place |
 | `scripts/save_contact_result.py` | Enregistre les résultats d'enrichissement (contacts + hypothèses d'e-mails) dans `data/communication/contact_results.json` | CLI | ✅ En place |
 | `scripts/update_metrics.py` | Agrège les analytics (CSV/JSON) et met à jour les KPIs | CLI | ⏳ À venir |
 | `scripts/sync_logs.sh` | Synchronisation bilatérale des journaux de communication | Shell | ✅ En place |
@@ -37,6 +38,18 @@ python scripts/update_metrics.py campaigns/2025-12-ai-feuilleton --source csv
 ```bash
 python scripts/save_contact_result.py   --campaign 2025-11-hub-communication   --full-name "Alice Martin"   --company "Acme"   --domain acme.com   --hypothesis alice.martin@acme.com:valid   --notes "Scraper + Maltego"
 ```
+
+### Créer un article de blog
+```bash
+python scripts/create_article.py "automatisation-recherche-emploi" \
+  --title "Comment automatiser votre recherche d'emploi avec Python" \
+  --summary "Guide complet pour automatiser vos candidatures" \
+  --keywords "python,automatisation,recherche-emploi" \
+  --tags "Python,Productivity" \
+  --category "technique"
+```
+
+L'article sera automatiquement disponible sur `/blog/<slug>` une fois le contenu rédigé dans `articles/article-<slug>/article.md`.
 
 ---
 
