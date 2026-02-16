@@ -1,0 +1,37 @@
+{
+  "schema_version": "2.0",
+  "campaign_id": "article-linkedin-10",
+  "slug": "article-linkedin-10-enrichissement-explicabilite-pourquoi-compte",
+  "created_at": "2026-01-26T14:00:00Z",
+  "updated_at": "2026-01-26T14:00:00Z",
+  "owner": "Lucas Tymen",
+  "status": "published",
+  "objective": "Un système de matching n'est utile que s'il est compréhensible. Pas seulement pour celui qui le conçoit, mais pour celui qui l'utilise. L'enrichissement joue un rôle clé dans cette explicabilité.",
+  "content": {
+    "title": "Enrichissement et explicabilité : pourquoi le \"pourquoi\" compte",
+    "summary": "Un système de matching n'est utile que s'il est compréhensible. Pas seulement pour celui qui le conçoit, mais pour celui qui l'utilise. L'enrichissement joue un rôle clé dans cette explicabilité.",
+    "category": "Enrichissement",
+    "tags": [
+      "enrichissement",
+      "explicabilité",
+      "matching",
+      "transparence",
+      "traçabilité"
+    ]
+  },
+  "seo": {
+    "meta_title": "Enrichissement et explicabilité : pourquoi le \"pourquoi\" compte | SquidResearch",
+    "meta_description": "Chaque signal enrichi traçable, component_scores détaillés, warnings et recommandations. L'explicabilité pour la confiance. SquidResearch.",
+    "keywords": [
+      "enrichissement",
+      "explicabilité",
+      "matching",
+      "transparence",
+      "component_scores"
+    ],
+    "slug": "article-linkedin-10-enrichissement-explicabilite-pourquoi-compte",
+    "schema_type": "Article",
+    "lang": "fr"
+  },
+  "source": "articles-complete.json"
+}

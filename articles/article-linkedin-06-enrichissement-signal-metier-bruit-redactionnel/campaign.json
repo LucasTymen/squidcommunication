@@ -1,0 +1,37 @@
+{
+  "schema_version": "2.0",
+  "campaign_id": "article-linkedin-06",
+  "slug": "article-linkedin-06-enrichissement-signal-metier-bruit-redactionnel",
+  "created_at": "2026-01-26T14:00:00Z",
+  "updated_at": "2026-01-26T14:00:00Z",
+  "owner": "Lucas Tymen",
+  "status": "published",
+  "objective": "Les offres d'emploi sont aussi des objets marketing. Elles cherchent à séduire, rassurer, valoriser une entreprise. Ce qui est utile pour un candidat ne l'est pas toujours pour un algorithme.",
+  "content": {
+    "title": "Enrichissement : séparer signal métier et bruit rédactionnel",
+    "summary": "Les offres d'emploi sont aussi des objets marketing. Elles cherchent à séduire, rassurer, valoriser une entreprise. Ce qui est utile pour un candidat ne l'est pas toujours pour un algorithme.",
+    "category": "Enrichissement",
+    "tags": [
+      "enrichissement",
+      "signal métier",
+      "bruit",
+      "matching",
+      "offres"
+    ]
+  },
+  "seo": {
+    "meta_title": "Enrichissement : séparer signal métier et bruit rédactionnel | SquidResearch",
+    "meta_description": "Distinguer signal métier et bruit rédactionnel dans les offres. Outils concrets vs qualificatifs marketing. Objectif fiabilité 95%. SquidResearch.",
+    "keywords": [
+      "enrichissement",
+      "signal métier",
+      "bruit rédactionnel",
+      "matching",
+      "offres"
+    ],
+    "slug": "article-linkedin-06-enrichissement-signal-metier-bruit-redactionnel",
+    "schema_type": "Article",
+    "lang": "fr"
+  },
+  "source": "articles-complete.json"
+}

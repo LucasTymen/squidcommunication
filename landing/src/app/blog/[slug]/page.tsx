@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { loadArticleBySlug, loadArticleContent } from "@/lib/campaigns";
 import type { CampaignJSON } from "@/lib/campaigns";
 import { generateMetadata as generateSEOMetadata, generateSchemaOrg } from "@/lib/seo";
+import { markdownToHtml } from "@/lib/markdown";
 
 function formatDate(iso?: string) {
   if (!iso) return "Date inconnue";

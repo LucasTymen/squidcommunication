@@ -1,0 +1,37 @@
+{
+  "schema_version": "2.0",
+  "campaign_id": "article-linkedin-12",
+  "slug": "article-linkedin-12-combien-coute-seo-neglige-etude-reelle",
+  "created_at": "2026-02-02T14:00:00Z",
+  "updated_at": "2026-02-02T14:00:00Z",
+  "owner": "Lucas Tymen",
+  "status": "published",
+  "objective": "Ce que je vais partager ici n'est pas une critique. C'est une étude de cas réelle, faite en dehors de tout cadre pro. Par pure obsession technique.",
+  "content": {
+    "title": "Combien coûte un SEO négligé ? Étude anonyme mais réelle",
+    "summary": "Ce que je vais partager ici n'est pas une critique. C'est une étude de cas réelle, faite en dehors de tout cadre pro. Par pure obsession technique.",
+    "category": "Growth",
+    "tags": [
+      "SEO",
+      "audit",
+      "coût",
+      "lead",
+      "growth"
+    ]
+  },
+  "seo": {
+    "meta_title": "Combien coûte un SEO négligé ? Étude anonyme mais réelle | SquidResearch",
+    "meta_description": "Audit SEO réel : pages noindex, backlinks 404, images sans alt. Estimation : 25k€ à 200k€/an de leads organiques perdus. SquidResearch.",
+    "keywords": [
+      "SEO",
+      "audit",
+      "coût",
+      "lead",
+      "trafic organique"
+    ],
+    "slug": "article-linkedin-12-combien-coute-seo-neglige-etude-reelle",
+    "schema_type": "Article",
+    "lang": "fr"
+  },
+  "source": "articles-complete.json"
+}

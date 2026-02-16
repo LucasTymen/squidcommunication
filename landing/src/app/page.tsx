@@ -1,5 +1,7 @@
-import { loadLatestCampaign } from "@/lib/campaigns";
+import Link from "next/link";
+import { loadLatestCampaign, loadAllArticles } from "@/lib/campaigns";
 import type { CampaignJSON } from "@/lib/campaigns";
+import { loadArticlesFromRegistry } from "@/lib/articles-registry";
 import { generateSchemaOrg } from "@/lib/seo";
 
 function formatDate(iso?: string) {
@@ -19,6 +21,8 @@ function formatDate(iso?: string) {
 export default function Home() {
   const campaign = loadLatestCampaign();
   const schemaOrg = generateSchemaOrg(campaign);
+  const { articles: registryArticles, metadata: registryMeta } = loadArticlesFromRegistry({ limit: 8 });
+  const blogArticles = loadAllArticles();
   const title = campaign?.campaign_id ?? "Communication SquidResearch";
   const objective =
     campaign?.objective ??
@@ -98,20 +102,21 @@ export default function Home() {
               <p className="text-lg text-slate-200/85">{summary}</p>
               <p className="text-sm text-slate-300/70">{objective}</p>
               <div className="flex flex-wrap gap-4 pt-2">
+                <Link
+                  href="/blog"
+                  className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#8b5cf6] via-[#6366f1] to-[#0ea5e9] px-6 py-3 text-sm font-semibold shadow-lg shadow-indigo-500/30 transition-all hover:scale-[1.01] hover:shadow-xl"
+                >
+                  Découvrir le blog
+                  <span className="transition-transform group-hover:translate-x-1">→</span>
+                </Link>
                 <a
                   href="https://www.linkedin.com/in/lucastymen/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#8b5cf6] via-[#6366f1] to-[#0ea5e9] px-6 py-3 text-sm font-semibold shadow-lg shadow-indigo-500/30 transition-all hover:scale-[1.01] hover:shadow-xl"
+                  className="group inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-sky-100/80 transition-colors hover:border-white hover:text-white"
                 >
-                  Suivre la saga LinkedIn
+                  Suivre sur LinkedIn
                   <span className="transition-transform group-hover:translate-x-1">→</span>
-                </a>
-                <a
-                  href="mailto:contact@squidresearch.com"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-sky-100/80 transition-colors hover:border-white hover:text-white"
-                >
-                  Être notifié des nouveaux épisodes
                 </a>
               </div>
             </div>
@@ -136,18 +141,15 @@ export default function Home() {
 
         <section className="grid gap-8 rounded-3xl border border-white/10 bg-white/5 p-10 backdrop-blur-xl shadow-[0_10px_40px_-15px_rgba(15,15,40,0.6)] lg:grid-cols-[1.2fr_1fr]">
           <div className="space-y-6">
-            <h2 className="text-2xl font-semibold text-white">Épisodes à venir</h2>
+            <h2 className="text-2xl font-semibold text-white">
+              {posts.length > 0 ? "Épisodes à venir" : "Derniers épisodes publiés"}
+            </h2>
             <p className="text-sm text-slate-200/70">
               Chaque publication alimente notre loop data-driven : tests d’angles, itérations produit,
               et insights que nous ramenons dans SquidResearch.
             </p>
             <div className="space-y-4">
-              {posts.length === 0 && (
-                <p className="rounded-xl border border-dashed border-white/20 bg-white/5 p-6 text-sm text-slate-200/70">
-                  Aucune campagne planifiée pour le moment. Lancez une campagne avec `python scripts/create_campaign.py`.
-                </p>
-              )}
-              {posts.map((post) => (
+              {posts.length > 0 ? posts.map((post) => (
                 <div
                   key={post.post_id}
                   className="flex flex-col gap-2 rounded-2xl bg-gradient-to-r from-white/12 to-white/5 p-4 shadow-inner shadow-indigo-900/40 sm:flex-row sm:items-center sm:justify-between"
@@ -163,8 +165,39 @@ export default function Home() {
                     <p className="text-sm font-medium text-white">{formatDate(post.scheduled_date)}</p>
                   </div>
                 </div>
-              ))}
+              )) : registryArticles.length > 0 ? (
+                registryArticles.slice(0, 6).map((article) => (
+                  <Link
+                    key={article.id}
+                    href={`/blog/${article.slug}`}
+                    className="flex flex-col gap-2 rounded-2xl bg-gradient-to-r from-white/12 to-white/5 p-4 shadow-inner shadow-indigo-900/40 transition-all hover:from-white/20 hover:to-white/10"
+                  >
+                    <p className="text-sm font-semibold text-indigo-200/80">{article.category}</p>
+                    <p className="text-base text-white/90 line-clamp-2">{article.title}</p>
+                    <p className="text-xs text-slate-200/60">
+                      {article.planning?.publish_date
+                        ? new Intl.DateTimeFormat("fr-FR", { day: "numeric", month: "short", year: "numeric" }).format(
+                            new Date(article.planning.publish_date)
+                          )
+                        : "Publié"}
+                    </p>
+                  </Link>
+                ))
+              ) : (
+                <p className="rounded-xl border border-dashed border-white/20 bg-white/5 p-6 text-sm text-slate-200/70">
+                  Aucune publication pour le moment. Les prochains articles arrivent bientôt.
+                </p>
+              )}
             </div>
+            {registryArticles.length > 0 && (
+              <Link
+                href="/blog"
+                className="inline-flex items-center gap-2 text-sm font-medium text-sky-200/90 hover:text-sky-200 transition-colors"
+              >
+                Voir tous les articles ({registryMeta.published + registryMeta.ready}+)
+                <span>→</span>
+              </Link>
+            )}
           </div>
           <div className="flex flex-col justify-between gap-6">
             <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-white/15 via-white/5 to-white/0 p-6 shadow-inner">
@@ -199,6 +232,53 @@ export default function Home() {
               })}
             </div>
           </div>
+        </section>
+
+        <section className="rounded-3xl border border-white/10 bg-gradient-to-br from-sky-500/10 via-indigo-500/10 to-purple-500/10 p-10 backdrop-blur-xl shadow-[0_10px_40px_-15px_rgba(15,15,40,0.6)]">
+          <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between mb-8">
+            <div>
+              <h2 className="text-3xl font-bold text-white">Derniers articles du blog</h2>
+              <p className="mt-2 text-slate-200/80 max-w-2xl">
+                Enrichissement, matching, Python, SEO, growth — retours d'expérience et cas réels sur SquidResearch.
+              </p>
+            </div>
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 rounded-full bg-white/10 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-white/20"
+            >
+              Tous les articles
+              <span>→</span>
+            </Link>
+          </div>
+          {blogArticles.length > 0 ? (
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {blogArticles.slice(0, 8).map((article) => {
+                const slug = article.slug || article.campaign_id || "";
+                const title = article.content?.title || article.campaign_id || "Sans titre";
+                const summary = article.content?.summary || article.objective || "";
+                const category = (article.content?.category || "Général").split("/").pop();
+                return (
+                  <Link
+                    key={article.campaign_id || slug}
+                    href={`/blog/${slug}`}
+                    className="group rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:border-white/20 hover:bg-white/10"
+                  >
+                    <span className="inline-block rounded-full bg-indigo-500/30 px-3 py-1 text-xs font-medium text-indigo-200 mb-3">
+                      {category}
+                    </span>
+                    <h3 className="text-lg font-semibold text-white group-hover:text-sky-200 transition-colors line-clamp-2">
+                      {title}
+                    </h3>
+                    <p className="mt-2 text-sm text-slate-300/70 line-clamp-3">{summary}</p>
+                  </Link>
+                );
+              })}
+            </div>
+          ) : (
+            <p className="rounded-xl border border-dashed border-white/20 bg-white/5 p-8 text-center text-slate-200/70">
+              Aucun article pour le moment. Synchronisez avec <code className="text-sky-200">python scripts/sync_articles_registry.py</code>
+            </p>
+          )}
         </section>
 
         <section className="grid gap-6 rounded-3xl border border-white/10 bg-white/5 p-10 backdrop-blur-xl shadow-[0_10px_40px_-15px_rgba(15,15,40,0.6)] md:grid-cols-2">
@@ -326,8 +406,8 @@ export default function Home() {
               <p className="text-sm text-slate-200/80">Coverage tests</p>
             </div>
             <div className="rounded-2xl border border-white/10 bg-white/10 p-6 text-center backdrop-blur-sm">
-              <p className="text-4xl font-bold text-indigo-400 mb-2">25</p>
-              <p className="text-sm text-slate-200/80">Sujets articles</p>
+              <p className="text-4xl font-bold text-indigo-400 mb-2">{blogArticles.length || registryMeta.total_articles || 97}</p>
+              <p className="text-sm text-slate-200/80">Articles</p>
             </div>
           </div>
           <div className="mt-6 grid gap-4 md:grid-cols-2">

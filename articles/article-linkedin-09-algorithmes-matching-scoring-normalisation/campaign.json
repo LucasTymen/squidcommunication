@@ -1,0 +1,37 @@
+{
+  "schema_version": "2.0",
+  "campaign_id": "article-linkedin-09",
+  "slug": "article-linkedin-09-algorithmes-matching-scoring-normalisation",
+  "created_at": "2026-01-26T14:00:00Z",
+  "updated_at": "2026-01-26T14:00:00Z",
+  "owner": "Lucas Tymen",
+  "status": "published",
+  "objective": "Comparer un profil à une offre revient à comparer des données très différentes : compétences, années d'expérience, contraintes, contextes. Sans cadre, le résultat est biaisé.",
+  "content": {
+    "title": "Algorithmes de matching : scoring et normalisation des données",
+    "summary": "Comparer un profil à une offre revient à comparer des données très différentes : compétences, années d'expérience, contraintes, contextes. Sans cadre, le résultat est biaisé.",
+    "category": "Matching",
+    "tags": [
+      "matching",
+      "scoring",
+      "normalisation",
+      "algorithmes",
+      "pondération"
+    ]
+  },
+  "seo": {
+    "meta_title": "Algorithmes de matching : scoring et normalisation des données | SquidResearch",
+    "meta_description": "Normalisation des critères, pondération ajustée sur cas réels. Le score comme indicateur, pas vérité. SquidResearch.",
+    "keywords": [
+      "matching",
+      "scoring",
+      "normalisation",
+      "algorithmes",
+      "pondération"
+    ],
+    "slug": "article-linkedin-09-algorithmes-matching-scoring-normalisation",
+    "schema_type": "Article",
+    "lang": "fr"
+  },
+  "source": "articles-complete.json"
+}

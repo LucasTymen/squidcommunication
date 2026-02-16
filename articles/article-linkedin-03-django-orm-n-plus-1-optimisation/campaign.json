@@ -1,0 +1,37 @@
+{
+  "schema_version": "2.0",
+  "campaign_id": "article-linkedin-03",
+  "slug": "article-linkedin-03-django-orm-n-plus-1-optimisation",
+  "created_at": "2026-01-26T14:00:00Z",
+  "updated_at": "2026-01-26T14:00:00Z",
+  "owner": "Lucas Tymen",
+  "status": "published",
+  "objective": "L'ORM de Django est confortable, mais il rend très facile l'écriture de code qui génère trop de requêtes SQL. Le cas classique, c'est le fameux N+1.",
+  "content": {
+    "title": "Django ORM : éviter le N+1 et optimiser les requêtes",
+    "summary": "L'ORM de Django est confortable, mais il rend très facile l'écriture de code qui génère trop de requêtes SQL. Le cas classique, c'est le fameux N+1.",
+    "category": "Python",
+    "tags": [
+      "Django",
+      "ORM",
+      "performance",
+      "N+1",
+      "PostgreSQL"
+    ]
+  },
+  "seo": {
+    "meta_title": "Django ORM : éviter le N+1 et optimiser les requêtes | SquidResearch",
+    "meta_description": "select_related, prefetch_related, only(), defer() : les méthodes systématiques pour éviter le N+1 en Django. SquidResearch.",
+    "keywords": [
+      "Django",
+      "ORM",
+      "N+1",
+      "performance",
+      "optimisation"
+    ],
+    "slug": "article-linkedin-03-django-orm-n-plus-1-optimisation",
+    "schema_type": "Article",
+    "lang": "fr"
+  },
+  "source": "articles-complete.json"
+}

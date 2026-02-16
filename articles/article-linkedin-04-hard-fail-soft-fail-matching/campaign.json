@@ -1,0 +1,37 @@
+{
+  "schema_version": "2.0",
+  "campaign_id": "article-linkedin-04",
+  "slug": "article-linkedin-04-hard-fail-soft-fail-matching",
+  "created_at": "2026-01-26T14:00:00Z",
+  "updated_at": "2026-01-26T14:00:00Z",
+  "owner": "Lucas Tymen",
+  "status": "published",
+  "objective": "Tous les critères d'un matching n'ont pas le même poids.",
+  "content": {
+    "title": "Hard-fail vs soft-fail : quand rejeter un match",
+    "summary": "Tous les critères d'un matching n'ont pas le même poids.",
+    "category": "Matching",
+    "tags": [
+      "hard-fail",
+      "soft-fail",
+      "matching",
+      "scoring",
+      "algorithmes"
+    ]
+  },
+  "seo": {
+    "meta_title": "Hard-fail vs soft-fail : quand rejeter un match | SquidResearch",
+    "meta_description": "Distinction hard-fail / soft-fail dans le matching d'offres. 87% de concordance, seuils APPLY_NOW, DRIP, REJECT. SquidResearch.",
+    "keywords": [
+      "hard-fail",
+      "soft-fail",
+      "matching",
+      "scoring",
+      "algorithmes"
+    ],
+    "slug": "article-linkedin-04-hard-fail-soft-fail-matching",
+    "schema_type": "Article",
+    "lang": "fr"
+  },
+  "source": "articles-complete.json"
+}

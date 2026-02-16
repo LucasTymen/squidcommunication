@@ -1,0 +1,37 @@
+{
+  "schema_version": "2.0",
+  "campaign_id": "article-linkedin-07",
+  "slug": "article-linkedin-07-paid-vs-seo-dilemme-dependance",
+  "created_at": "2026-02-02T14:00:00Z",
+  "updated_at": "2026-02-02T14:00:00Z",
+  "owner": "Lucas Tymen",
+  "status": "published",
+  "objective": "Imaginez deux entreprises.",
+  "content": {
+    "title": "Paid vs SEO : le dilemme de la dépendance",
+    "summary": "Imaginez deux entreprises.",
+    "category": "Growth",
+    "tags": [
+      "Paid",
+      "SEO",
+      "growth",
+      "B2B",
+      "lead"
+    ]
+  },
+  "seo": {
+    "meta_title": "Paid vs SEO : le dilemme de la dépendance | SquidResearch",
+    "meta_description": "Le SEO seul ne suffit pas. Le paid seul est cher et volatile. Un bon growth engineer combine, scénarise et automatise.",
+    "keywords": [
+      "Paid",
+      "SEO",
+      "growth",
+      "B2B",
+      "lead"
+    ],
+    "slug": "article-linkedin-07-paid-vs-seo-dilemme-dependance",
+    "schema_type": "Article",
+    "lang": "fr"
+  },
+  "source": "articles-complete.json"
+}

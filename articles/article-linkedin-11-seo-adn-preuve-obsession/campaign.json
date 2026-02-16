@@ -1,0 +1,37 @@
+{
+  "schema_version": "2.0",
+  "campaign_id": "article-linkedin-11",
+  "slug": "article-linkedin-11-seo-adn-preuve-obsession",
+  "created_at": "2026-02-02T14:00:00Z",
+  "updated_at": "2026-02-02T14:00:00Z",
+  "owner": "Lucas Tymen",
+  "status": "published",
+  "objective": "Je ne peux pas m'en empêcher. Quand je vois un site, je regarde le code source, les balises title, le robots.txt, les redirections. C'est comme une manie. Parfois, je fais des audits à blanc, pour le plaisir.",
+  "content": {
+    "title": "Le SEO est dans mon ADN : preuve par l'obsession",
+    "summary": "Je ne peux pas m'en empêcher. Quand je vois un site, je regarde le code source, les balises title, le robots.txt, les redirections. C'est comme une manie. Parfois, je fais des audits à blanc, pour le plaisir.",
+    "category": "Growth",
+    "tags": [
+      "SEO",
+      "audit",
+      "paid",
+      "organic",
+      "growth"
+    ]
+  },
+  "seo": {
+    "meta_title": "Le SEO est dans mon ADN : preuve par l'obsession | SquidResearch",
+    "meta_description": "Audits à blanc, erreurs courantes (canonicals, alt text, pages cassées). Pourquoi tout miser sur le paid est risqué. SquidResearch.",
+    "keywords": [
+      "SEO",
+      "audit",
+      "paid",
+      "organic",
+      "growth"
+    ],
+    "slug": "article-linkedin-11-seo-adn-preuve-obsession",
+    "schema_type": "Article",
+    "lang": "fr"
+  },
+  "source": "articles-complete.json"
+}

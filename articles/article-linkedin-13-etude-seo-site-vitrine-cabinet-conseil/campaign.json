@@ -1,0 +1,37 @@
+{
+  "schema_version": "2.0",
+  "campaign_id": "article-linkedin-13",
+  "slug": "article-linkedin-13-etude-seo-site-vitrine-cabinet-conseil",
+  "created_at": "2026-02-02T14:00:00Z",
+  "updated_at": "2026-02-02T14:00:00Z",
+  "owner": "Lucas Tymen",
+  "status": "published",
+  "objective": "Un jour, j'ai pris le temps de faire un audit SEO complet d'un site. Pas parce qu'on me l'avait demandé. Pas parce que j'avais un brief. Juste parce que j'avais un doute en naviguant sur leur contenu : un bon site, bien écrit, bien pensé, mais invisible sur Google.",
+  "content": {
+    "title": "L'étude SEO d'un site vitrine de cabinet de conseil",
+    "summary": "Un jour, j'ai pris le temps de faire un audit SEO complet d'un site. Pas parce qu'on me l'avait demandé. Pas parce que j'avais un brief. Juste parce que j'avais un doute en naviguant sur leur contenu : un bon site, bien écrit, bien pensé, mais invisible sur Google.",
+    "category": "Growth",
+    "tags": [
+      "SEO",
+      "audit",
+      "site vitrine",
+      "cabinet conseil",
+      "indexation"
+    ]
+  },
+  "seo": {
+    "meta_title": "L'étude SEO d'un site vitrine de cabinet de conseil | SquidResearch",
+    "meta_description": "Audit SEO : erreurs structurelles bloquant l'indexation. 1 200 à 2 700 visites manquantes/mois, 5k€ à 13k€/an non captés. SquidResearch.",
+    "keywords": [
+      "SEO",
+      "audit",
+      "site vitrine",
+      "cabinet conseil",
+      "indexation"
+    ],
+    "slug": "article-linkedin-13-etude-seo-site-vitrine-cabinet-conseil",
+    "schema_type": "Article",
+    "lang": "fr"
+  },
+  "source": "articles-complete.json"
+}

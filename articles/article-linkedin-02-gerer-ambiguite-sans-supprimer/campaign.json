@@ -1,0 +1,37 @@
+{
+  "schema_version": "2.0",
+  "campaign_id": "article-linkedin-02",
+  "slug": "article-linkedin-02-gerer-ambiguite-sans-supprimer",
+  "created_at": "2026-01-26T14:00:00Z",
+  "updated_at": "2026-01-26T14:00:00Z",
+  "owner": "Lucas Tymen",
+  "status": "published",
+  "objective": "Une offre d'emploi contient presque toujours une part d'ambiguïté. Le véritable enjeu n'est pas de la faire disparaître, mais de savoir comment la traiter. Chercher à tout clarifier conduit souvent à des interprétations artificielles ; l'ignorer totalement rend le matching instable. L'enrichissement",
+  "content": {
+    "title": "Gérer l'ambiguïté sans la supprimer",
+    "summary": "Une offre d'emploi contient presque toujours une part d'ambiguïté. Le véritable enjeu n'est pas de la faire disparaître, mais de savoir comment la traiter. Chercher à tout clarifier conduit souvent à des interprétations artificielles ; l'ignorer totalement rend le matching instable. L'enrichissement",
+    "category": "Enrichissement",
+    "tags": [
+      "ambiguïté",
+      "enrichissement",
+      "matching",
+      "scoring",
+      "pondération"
+    ]
+  },
+  "seo": {
+    "meta_title": "Gérer l'ambiguïté sans la supprimer | SquidResearch",
+    "meta_description": "Comment encadrer l'ambiguïté dans les offres d'emploi sans créer d'interprétations artificielles. Plafond 42%, pondération transparente. SquidResearch.",
+    "keywords": [
+      "ambiguïté",
+      "enrichissement",
+      "matching",
+      "scoring",
+      "signaux"
+    ],
+    "slug": "article-linkedin-02-gerer-ambiguite-sans-supprimer",
+    "schema_type": "Article",
+    "lang": "fr"
+  },
+  "source": "articles-complete.json"
+}
