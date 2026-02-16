@@ -4,6 +4,22 @@
 
 ---
 
+## [2026-02-16] Intégration page activité ↔ blog personnel — Doc et liaison équipe
+
+### ✅ Mise à jour de la documentation et alignement avec le blog perso
+
+**Objectif** : Consolider la liaison entre la page d’activité (SquidCommunication), le blog du site perso (landingpageCvPagePerso) et l’équipe (orchestrateur, technique).
+
+**Réalisations** :
+
+- **Document INTEGRATION_ACTIVITE_BLOG.md** : Mis à jour (2026-02-16) avec chemins relatifs/absolus, logs (communication, publication, Git), registre `articles-complete.json` (97 articles, 14 publiés, 44 prêts, 71 brouillons), feed blog `articles/`, workflow de sync et commandes pour l’orchestrateur.
+- **Avis équipe** : Le blog perso et le pool d’agents (landingpageCvPagePerso) référencent désormais ce document et la page à surveiller pour actualiser l’activité Squid Research et la communication LinkedIn.
+- **Registre** : `articles-complete.json` à jour (last_updated 2026-02-16). Articles LinkedIn (article-linkedin-01 à 13) présents dans `articles/` avec `campaign.json` et `article.md`.
+
+**À faire** : Aligner `docs/PUBLICATION_LOG.md` avec les métadonnées du registre (14 publiés, 44 prêts) et exécuter `scripts/sync_articles_registry.py` si besoin pour synchroniser le feed du blog landing.
+
+---
+
 ## [2026-01-05 09:45] Préparation Articles 3-9 + Système de Publication
 
 ### ✅ Système Complet de Publication d'Articles

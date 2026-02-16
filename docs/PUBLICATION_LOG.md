@@ -1,7 +1,9 @@
 # 📝 Journal de Publication - SquidCommunication
 
-**Dernière mise à jour** : 2026-01-05  
+**Dernière mise à jour** : 2026-02-16  
 **Objectif** : Traçabilité complète des articles publiés et à publier
+
+**Alignement registre** : `articles-complete.json` indique **14 publiés**, **44 prêts**, **71 brouillons** (97 total, last_updated 2026-02-16). Ce journal détaille les articles « numérotés » (article-1 à 9) et la préparation ; pour la liste exhaustive des 14 publiés et 44 prêts, consulter le registre.
 
 ---
 
@@ -51,11 +53,10 @@
 
 ## 📊 Statistiques
 
-- **Articles publiés** : 1
-- **Articles prêts à publier** : 7
-- **Articles à restructurer** : 1 (article-2)
-- **Total déclinaisons générées** : 28 (7 articles × 4 plateformes)
-- **Taux de préparation** : 87.5% (7/8)
+- **Registre (articles-complete.json)** : 97 articles — **14 publiés**, **44 prêts**, 71 brouillons (last_updated 2026-02-16).
+- **Articles « numérotés » (article-1 à 9)** : 1 publié (article-1), 7 prêts (articles 3-9), 1 à restructurer (article-2).
+- **Articles LinkedIn (article-linkedin-01 à 13)** : 13 articles dans `articles/` avec campaign.json + article.md (créés janv–fév 2026).
+- **Total déclinaisons générées (articles 3-9)** : 28 (7 × 4 plateformes).
 
 ---
 

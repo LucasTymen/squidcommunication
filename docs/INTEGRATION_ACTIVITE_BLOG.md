@@ -82,7 +82,7 @@ squidCommunication/
 
 | Log | Chemin | Contenu |
 |-----|--------|---------|
-| **Communication log** | `communication_log.md` | Journal des mises à jour, campagnes, features (2025-11 à 2026-01) |
+| **Communication log** | `communication_log.md` | Journal des mises à jour, campagnes, features (2025-11 à 2026-02) |
 | **Publication log** | `docs/PUBLICATION_LOG.md` | Articles publiés, prêts à publier, planning, statistiques |
 | **Git logs** | `.git/logs/HEAD`, `.git/logs/refs/heads/main` | Historique des commits |
 
